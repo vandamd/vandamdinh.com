@@ -13,4 +13,4 @@ date = 2022-05-28
 4. Are You Alright? by Ulrik Munther
 5. Still Feel It All by MARO
 
-![cover](/music/waiting-for-you.png)
+![cover](/music/waiting-for-you.jpeg)
