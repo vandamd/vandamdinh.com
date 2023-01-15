@@ -10,6 +10,7 @@
     {% endblock extra_head %}
     <link rel="icon" href="{{ config.extra.hook_icon | safe }}">
 </head>
+
 <body>
     {% block header %}
     <header class="space">
@@ -30,7 +31,8 @@
 
     {% block content %}
     {% set blog = get_section(path="blog/_index.md") %}
-    {% if section.content or blog.pages %}
+    {% set music = get_section(path="music/_index.md") %}
+    {% if section.content or blog.pages or music.pages%}
     <main>
         <h2>What I'm listening to</h2>
         <div id="now-playing">Loading...</div>
@@ -115,21 +117,24 @@
         {% if blog.pages %}
 
         <h2>Posts</h2>
-        <!-- <ul> -->
-            {% for post in blog.pages | reverse %}
-            <!-- <li> -->
+            {% for post in blog.pages %}
                 <p class="date">{{ post.date }} -
                     <a href="{{ post.permalink | safe }}">{{ post.title }}</a>
                 </p>
-            <!-- </li> -->
             {% endfor %}
-        <!-- </ul> -->
+        {% endif %}
+
+        {% if music.pages %}
+        <h2>Music</h2>
+            {% for post in music.pages %}
+                <p class="date">{{ post.date }} -
+                    <a href="{{ post.permalink | safe }}">{{ post.title }}</a>
+                </p>
+            {% endfor %}
         {% endif %}
     </main>
     {% endif %}
     {% endblock content %}
-
-
     <div class="dark-mode-buttons">
         <button class="dark-mode-button" id="dark-mode-on"><img src="{{ get_url(path='dark_mode.svg') }}" width="24" height="24" alt="Dark mode" aria-label="dark mode toggle" title="Dark mode"></button>
         <button class="dark-mode-button" id="dark-mode-off"><img src="{{ get_url(path='light_mode.svg') }}" width="24" height="24" alt="Light mode" aria-label="light mode toggle" title="Light mode"></button>
