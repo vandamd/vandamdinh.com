@@ -13,6 +13,11 @@ build_search_index = false
 # Page Title
 title = "Vandam"
 
+# RSS
+generate_feed = true
+
+
+
 [markdown]
 # Whether to do syntax highlighting
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
@@ -24,6 +29,7 @@ links = [
     { title = "Mail", href = "mailto:hi@vandam.tech" },
     { title = "GitHub", href = "https://github.com/vandamd"},
     { title = "Resume", href = "/Resume.pdf" },
+    { title = "RSS", href = "/atom.xml" },
     # ...
 ]
 
