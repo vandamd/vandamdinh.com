@@ -3,12 +3,17 @@ $background: #F8F9FA;
 $secondary: #5C6166;
 $tertiary: #55B4D4;
 $accent: #1A1A1A;
+$card: #EFEFEF;
+$card-hover: #E3E3E3;
+
 
 $foreground-dark: #FFFFFF;
 $background-dark: #1F2430;
 $secondary-dark: #CCCAC2;
 $tertiary-dark: #565B66;
 $accent-dark: #FFFFFF;
+$card-dark: #232833;
+$card-hover-dark: #2B313F;
 
 @mixin light-theme {
     color: $foreground;
@@ -49,6 +54,34 @@ $accent-dark: #FFFFFF;
     td {
         border: 1px solid $accent;
         padding: 10px;
+    }
+
+    .album-card {
+        background-color: $card;
+    }
+
+    .album-card:hover {
+        background-color: $card-hover;
+    }
+
+    .tracklist-container {
+        background-color: $card;
+    }
+
+    .tracklist-container:hover {
+        background-color: $card-hover;
+    }
+
+    .lyrics-container {
+        background-color: $card;
+    }
+
+    .lyrics-container:hover {
+        background-color: $card-hover;
+    }
+
+    .tracklist-container button {
+        color: $foreground
     }
 
 }
@@ -93,6 +126,35 @@ $accent-dark: #FFFFFF;
         border: 1px solid $accent-dark;
         padding: 10px;      
     }    
+    
+    .album-card {
+        background-color: $card-dark;
+    }
+
+    .album-card:hover {
+        background-color: $card-hover-dark;
+    }
+
+    .tracklist-container {
+        background-color: $card-dark;
+    }
+
+    .tracklist-container:hover {
+        background-color: $card-hover-dark;
+    }
+
+    .lyrics-container {
+        background-color: $card-dark;
+    }
+
+    .lyrics-container:hover {
+        background-color: $card-hover-dark;
+    }
+
+    .tracklist-container button {
+        color: $foreground-dark
+    }
+
 }
 
 @media (prefers-color-scheme: light) {

@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+
+{% block header %}
+<header class="space">
+    <a href="{{ config.base_url }}">&LeftArrow; Home</a>
+    <script src="javascript/accompany.js"></script>
+</header>
+{% endblock header %}
+
+{% block content %}
+<main>
+    <h1>{{ page.title }}</h1>
+
+    <form id="search-form" class="search-form">
+        <input type="text" id="search-input" placeholder="Search for an album">
+        <button type="submit">Search</button>
+    </form>
+    
+    <div id="results"></div>
+
+    <script>
+        // Get references to the form and search input
+        const form = document.getElementById('search-form');
+        const input = document.getElementById('search-input');
+
+        // Listen for form submission
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            searchAlbums(input.value);
+        });
+    </script>
+</main>
+{% endblock content %}

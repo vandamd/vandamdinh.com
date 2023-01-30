@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+
+{% block header %}
+<header class="space">
+    <a href="/accompany">&LeftArrow; Search</a>
+    <script src="javascript/accompany.js"></script>
+</header>
+{% endblock header %}
+
+{% block content %}
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const albumName = params.get('albumName');
+    const artistName = params.get('artistName');
+    const mbid = params.get('mbid');
+  
+    displayTracklist(albumName, artistName, mbid);
+    getStreamLinks(albumName, artistName);
+</script>
+
+<main>
+
+    <div id="tracklist-container"></div>
+    <div id="lyrics-parent"></div>
+
+</main>
+
+{% endblock content %}
