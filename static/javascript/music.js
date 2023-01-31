@@ -1,9 +1,9 @@
 let dots = 0;
 
 function updateLoadingText() {
-const loadingText = document.getElementById('now-playing');
-dots = (dots + 1) % 4; // cycle through dots
-loadingText.innerHTML = `Loading${'.'.repeat(dots)}`;
+    const loadingText = document.getElementById('now-playing');
+    dots = (dots + 1) % 4; // cycle through dots
+    loadingText.innerHTML = `Loading${'.'.repeat(dots)}`;
 }
 
 // update the loading text every 500 milliseconds
