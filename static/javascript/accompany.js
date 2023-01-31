@@ -5,6 +5,7 @@
 // https://github.com/asrvd/lyrist
 
 // Last.fm API
+const apiKey = 'e0359fa55e2ec8f912a81467e43bd946';
 const urlsearch = 'https://ws.audioscrobbler.com/2.0/?method=album.search&album=';
 const urltracks = 'https://ws.audioscrobbler.com/2.0/?method=album.getInfo&mbid=';
 const urllyrics = 'https://lyrist.vercel.app/api/';
