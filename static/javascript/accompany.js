@@ -9,6 +9,9 @@ const apiKey = 'e0359fa55e2ec8f912a81467e43bd946';
 const urlsearch = 'https://ws.audioscrobbler.com/2.0/?method=album.search&album=';
 const urltracks = 'https://ws.audioscrobbler.com/2.0/?method=album.getInfo&mbid=';
 const urllyrics = 'https://lyrist.vercel.app/api/';
+const urldeezersearch = 'https://api.deezer.com/search?q=';
+const urldeezeralbum = 'https://www.deezer.com/album/';
+const urlstream = 'https://api.song.link/v1-alpha.1/links?url=';
 // const corsProxy = 'https://cors-anywhere.herokuapp.com/';
 const corsProxy = '';
 
@@ -50,83 +53,79 @@ function searchAlbums(searchTerm) {
 
 // Track List Function
 function displayTracklist(albumName, artistName, mbid) {
-    // Make the request to the Last.fm API to get the tracklist
-    const tracksUrl = urltracks + mbid + '&artist=' + artistName + '&album=' + albumName + '&api_key=' + apiKey + '&format=json';
+    getStreamLinks(albumName, artistName).then(streamLinks => {
 
-    fetch(tracksUrl)
-        .then(response => response.json())
-        .then(data => {
-            const tracklist = data.album.tracks.track;
-            const albumImage = data.album.image[3]["#text"];
+        // Make the request to the Last.fm API to get the tracklist
+        const tracksUrl = urltracks + mbid + '&artist=' + artistName + '&album=' + albumName + '&api_key=' + apiKey + '&format=json';
 
-            // Wrap the tracklist in a container element
-            const tracklistContainer = document.createElement('div');
-            tracklistContainer.classList.add('tracklist-container');
+        fetch(tracksUrl)
+            .then(response => response.json())
+            .then(data => {
+                const tracklist = data.album.tracks.track;
+                const albumImage = data.album.image[3]["#text"];
 
-            // Add the event listener to the container
-            tracklistContainer.addEventListener('click', (event) => {
-                // Check if the target of the event is the album cover
-                if (event.target.matches('.album-cover, .fixed')) {
-                    return;
-                }
-                tracklistContainer.classList.toggle('collapsed');
-            });
+                // Wrap the tracklist in a container element
+                const tracklistContainer = document.createElement('div');
+                tracklistContainer.classList.add('tracklist-container');
 
-            // Display the Album Name and Artist Name
-            const albumInfoElement = document.createElement('div');
-            albumInfoElement.classList.add('album-info');
-            const albumNames = document.createElement('div');
-            albumNames.classList.add('album-names');
-            albumNames.innerHTML = `<h1 class='fixed'>${albumName}</h1> <h3 class='fixed'>${artistName}</h3>`;
-            albumInfoElement.appendChild(albumNames);
-            tracklistContainer.appendChild(albumInfoElement);
-            
-            // Make the album cover a link from getStreamLink function
-            // Fix [object Promise] error
-            const albumCoverElement = document.createElement('a');
-            albumCoverElement.classList.add('album-cover');
-            albumCoverElement.href = `#`;
-            albumCoverElement.target = '_blank';
-            albumCoverElement.innerHTML = `<img class='album-cover' src="${albumImage}" alt="${albumName} by ${artistName}">`;
-            albumCoverElement.classList.add('album-cover');
-            albumInfoElement.prepend(albumCoverElement);
-
-            // Display the tracklist
-            const tracklistElement = document.createElement('ul');
-            tracklist.forEach(track => {
-                const trackElement = document.createElement('li');
-                trackElement.classList.add('fixed');
-                trackElement.innerHTML = `${track.name}`;
-
-                // Add the event listener to the track element
-                trackElement.addEventListener('click', () => {
-                    const selectedTrackElements = tracklistElement.querySelectorAll('.selected');
-                    selectedTrackElements.forEach(selectedTrackElement => {
-                        selectedTrackElement.classList.remove('selected');
-                    });
-                    trackElement.classList.add('selected');
-                    displayLyrics(track.name, artistName);
+                // Add the event listener to the container
+                tracklistContainer.addEventListener('click', (event) => {
+                    // Check if the target of the event is the album cover
+                    if (event.target.matches('.album-cover, .fixed')) {
+                        return;
+                    }
+                    tracklistContainer.classList.toggle('collapsed');
                 });
 
-                tracklistElement.appendChild(trackElement);
-            });
-            tracklistContainer.appendChild(tracklistElement);
-            
-            // // Make the div a button to collapse
-            // const containerButton = document.createElement('button');
-            // containerButton.classList.add('collapsible');
-            // containerButton.innerHTML = `Hide`;
-            // tracklistContainer.prepend(containerButton);
+                // Display the Album Name and Artist Name
+                const albumInfoElement = document.createElement('div');
+                albumInfoElement.classList.add('album-info');
+                const albumNames = document.createElement('div');
+                albumNames.classList.add('album-names');
+                albumNames.innerHTML = `<h1 class='fixed'>${albumName}</h1> <h3 class='fixed'>${artistName}</h3>`;
+                albumInfoElement.appendChild(albumNames);
+                tracklistContainer.appendChild(albumInfoElement);
+                
+                // Make the album cover a link from getStreamLink function
+                const albumCoverElement = document.createElement('a');
+                albumCoverElement.classList.add('album-cover');
+                albumCoverElement.href = streamLinks;
+                albumCoverElement.target = '_blank';
+                albumCoverElement.innerHTML = `<img class='album-cover' src="${albumImage}" alt="${albumName} by ${artistName}">`;
+                albumCoverElement.classList.add('album-cover');
+                albumInfoElement.prepend(albumCoverElement);
 
-            // Make the first track selected and display lyrics
-            const firstTrack = tracklistContainer.querySelector('li');
-            firstTrack.classList.add('selected');
-            displayLyrics(firstTrack.textContent, artistName);
+                // Display the tracklist
+                const tracklistElement = document.createElement('ul');
+                tracklist.forEach(track => {
+                    const trackElement = document.createElement('li');
+                    trackElement.classList.add('fixed');
+                    trackElement.innerHTML = `${track.name}`;
 
-            // Append the tracklist container to the page
-            document.body.appendChild(tracklistContainer);
-        })
-        .catch(error => console.log(error));
+                    // Add the event listener to the track element
+                    trackElement.addEventListener('click', () => {
+                        const selectedTrackElements = tracklistElement.querySelectorAll('.selected');
+                        selectedTrackElements.forEach(selectedTrackElement => {
+                            selectedTrackElement.classList.remove('selected');
+                        });
+                        trackElement.classList.add('selected');
+                        displayLyrics(track.name, artistName);
+                    });
+
+                    tracklistElement.appendChild(trackElement);
+                });
+                tracklistContainer.appendChild(tracklistElement);
+
+                // Make the first track selected and display lyrics
+                const firstTrack = tracklistContainer.querySelector('li');
+                firstTrack.classList.add('selected');
+                displayLyrics(firstTrack.textContent, artistName);
+
+                // Append the tracklist container to the page
+                document.body.appendChild(tracklistContainer);
+            })
+            .catch(error => console.log(error));
+    });
 }
 
 
@@ -181,11 +180,6 @@ function displayLyrics(trackName, artistName) {
         });
 }
 
-
-const urldeezersearch = 'https://api.deezer.com/search?q=';
-const urldeezeralbum = 'https://www.deezer.com/album/';
-const urlstream = 'https://api.song.link/v1-alpha.1/links?url=';
-
 async function getStreamLinks(albumName, artistName) {
     // Query urldeezersearch with albumName and artistName
     const response = await fetch(`${corsProxy}${urldeezersearch}${albumName} ${artistName}`);
@@ -209,11 +203,11 @@ async function getStreamLinks(albumName, artistName) {
     // Get the Songlink page URL
     const response2 = await fetch(`${urlstream}${deezerUrl}`);
     const data2 = await response2.json();
-    if (data2.status !== 'ok' || !data2.result) {
-        return null;
-    }
+    
+    const pageUrl = data2.pageUrl;
+    
+    return pageUrl;
 
-    // make href for album cover data2.result.pageUrl
-    const albumCover = document.querySelector('.album-cover');
-    albumCover.href = `${data2.result.pageUrl}`;
+
+
 }
