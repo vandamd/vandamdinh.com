@@ -84,6 +84,10 @@ $card-hover-dark: #2B313F;
         color: $foreground
     }
 
+    .source {
+        color: $secondary;
+    }
+
 }
 
 @mixin dark-theme {
@@ -153,6 +157,10 @@ $card-hover-dark: #2B313F;
 
     .tracklist-container button {
         color: $foreground-dark
+    }
+
+    .source {
+        color: $secondary-dark;
     }
 
 }

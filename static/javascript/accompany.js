@@ -12,8 +12,8 @@ const urllyrics = 'https://lyrist.vercel.app/api/';
 const urldeezersearch = 'https://api.deezer.com/search?q=';
 const urldeezeralbum = 'https://www.deezer.com/album/';
 const urlstream = 'https://api.song.link/v1-alpha.1/links?url=';
-// const corsProxy = 'https://cors-anywhere.herokuapp.com/';
-const corsProxy = '';
+const corsProxy = 'https://cors-anywhere.herokuapp.com/';
+// const corsProxy = '';
 
 // Search Album Function
 function searchAlbums(searchTerm) {
@@ -93,6 +93,11 @@ function displayTracklist(albumName, artistName, mbid) {
                 albumCoverElement.target = '_blank';
                 albumCoverElement.innerHTML = `<img class='album-cover' src="${albumImage}" alt="${albumName} by ${artistName}">`;
                 albumCoverElement.classList.add('album-cover');
+
+                const streamElement = document.createElement('div');
+                streamElement.classList.add('overlay');
+                streamElement.innerHTML = 'Stream';
+                albumInfoElement.prepend(streamElement);
                 albumInfoElement.prepend(albumCoverElement);
 
                 // Display the tracklist
@@ -164,6 +169,7 @@ function displayLyrics(trackName, artistName) {
         })
         .then(data => {
             const lyrics = data.lyrics;
+            const source = data.source;
 
             // Get the lyrics parent element
             const lyricsParent = document.querySelector('#lyrics-parent');
@@ -171,6 +177,7 @@ function displayLyrics(trackName, artistName) {
             const lyricsHtml = `<div class="lyrics-container">
                 <h1>${trackName}</h1>
                 <p>${lyrics.replace(/\n/g, '<br>')}</p>
+                <p class="source">Lyrics provided by ${source}</p>
             </div>`;
             cache[cacheKey] = lyricsHtml;
             lyricsParent.innerHTML = lyricsHtml;
