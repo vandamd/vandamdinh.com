@@ -1,6 +1,7 @@
 +++
 title = "Hotkeys and Window Management on macOS"
 slug = "hotkeys-window-management"
+description = "Improve your hotkeys and window management on macOS with the help of Karabiner Elements and Raycast. Customize your own hotkeys and actions to make your workflow more efficient. Discover the benefits of these free applications, including the ability to replace the Caps Lock key with the Hyper Key, move windows to the sides, maximize windows, and create Quicklinks with aliases. Enhance your experience with a better hotkey setup." 
 date = 2023-01-09
 +++
 

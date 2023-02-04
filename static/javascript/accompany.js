@@ -12,8 +12,8 @@ const urllyrics = 'https://lyrist.vercel.app/api/';
 const urldeezersearch = 'https://api.deezer.com/search?q=';
 const urldeezeralbum = 'https://www.deezer.com/album/';
 const urlstream = 'https://api.song.link/v1-alpha.1/links?url=';
-const corsProxy = 'https://cors-anywhere.herokuapp.com/';
-// const corsProxy = '';
+// const corsProxy = 'https://cors-anywhere.herokuapp.com/';
+const corsProxy = '';
 
 // Search Album Function
 function searchAlbums(searchTerm) {
@@ -71,7 +71,7 @@ function displayTracklist(albumName, artistName, mbid) {
                 // Add the event listener to the container
                 tracklistContainer.addEventListener('click', (event) => {
                     // Check if the target of the event is the album cover
-                    if (event.target.matches('.album-cover, .fixed')) {
+                    if (event.target.matches('.album-cover, .fixed, .album-cover-overlay')) {
                         return;
                     }
                     tracklistContainer.classList.toggle('collapsed');
@@ -91,13 +91,12 @@ function displayTracklist(albumName, artistName, mbid) {
                 albumCoverElement.classList.add('album-cover');
                 albumCoverElement.href = streamLinks;
                 albumCoverElement.target = '_blank';
-                albumCoverElement.innerHTML = `<img class='album-cover' src="${albumImage}" alt="${albumName} by ${artistName}">`;
-                albumCoverElement.classList.add('album-cover');
-
-                const streamElement = document.createElement('div');
-                streamElement.classList.add('overlay');
-                streamElement.innerHTML = 'Stream';
-                albumInfoElement.prepend(streamElement);
+                albumCoverElement.innerHTML = `
+                  <div class="album-cover-img-container">
+                    <img class='album-cover-img' src="${albumImage}" alt="${albumName} by ${artistName}">
+                  </div>
+                  <div class="album-cover-overlay">Stream</div>
+                `;
                 albumInfoElement.prepend(albumCoverElement);
 
                 // Display the tracklist
