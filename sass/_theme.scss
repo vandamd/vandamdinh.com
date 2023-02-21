@@ -56,38 +56,6 @@ $card-hover-dark: #2B313F;
         padding: 10px;
     }
 
-    .album-card {
-        background-color: $card;
-    }
-
-    .album-card:hover {
-        background-color: $card-hover;
-    }
-
-    .tracklist-container {
-        background-color: $card;
-    }
-
-    .tracklist-container:hover {
-        background-color: $card-hover;
-    }
-
-    .lyrics-container {
-        background-color: $card;
-    }
-
-    .lyrics-container:hover {
-        background-color: $card-hover;
-    }
-
-    .tracklist-container button {
-        color: $foreground
-    }
-
-    .source {
-        color: $secondary;
-    }
-
 }
 
 @mixin dark-theme {
@@ -130,38 +98,6 @@ $card-hover-dark: #2B313F;
         border: 1px solid $accent-dark;
         padding: 10px;      
     }    
-    
-    .album-card {
-        background-color: $card-dark;
-    }
-
-    .album-card:hover {
-        background-color: $card-hover-dark;
-    }
-
-    .tracklist-container {
-        background-color: $card-dark;
-    }
-
-    .tracklist-container:hover {
-        background-color: $card-hover-dark;
-    }
-
-    .lyrics-container {
-        background-color: $card-dark;
-    }
-
-    .lyrics-container:hover {
-        background-color: $card-hover-dark;
-    }
-
-    .tracklist-container button {
-        color: $foreground-dark
-    }
-
-    .source {
-        color: $secondary-dark;
-    }
 
 }
 
