@@ -9,6 +9,7 @@ function updateLoadingText() {
 // update the loading text every 500 milliseconds
 const intervalId = setInterval(updateLoadingText, 500);
 
+const apiKey = 'e0359fa55e2ec8f912a81467e43bd946';
 const user = 'vandamd';
 const limit = 4;
 const url = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${user}&api_key=${apiKey}&limit=${limit}&format=json`;
