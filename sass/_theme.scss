@@ -74,7 +74,7 @@ $outline-dark: rgba(202, 202, 202, 0.25);
         color: $secondary;
     }
 
-    .button:hover {
+    .button:hover , .button:active {
         cursor: pointer;
         background: $grey;
         transition: 100ms;
@@ -98,7 +98,7 @@ $outline-dark: rgba(202, 202, 202, 0.25);
         border: 1px solid $outline;
     }
 
-    .card:hover {
+    .card:hover, .card:active{
         background: $grey;
     }
 
@@ -118,7 +118,7 @@ $outline-dark: rgba(202, 202, 202, 0.25);
         outline: 1px solid $outline;
     }
 
-    .list-pill:hover {
+    .list-pill:hover, .list-pill:active{
         background-color: $grey;
     }
 
@@ -192,7 +192,7 @@ $outline-dark: rgba(202, 202, 202, 0.25);
         color: $secondary-dark;
     }
 
-    .button:hover {
+    .button:hover, .button:active{
         cursor: pointer;
         background: $grey-dark;
         transition: 100ms;
@@ -216,7 +216,7 @@ $outline-dark: rgba(202, 202, 202, 0.25);
         border: 1px solid $outline-dark;
     }
 
-    .card:hover {
+    .card:hover, .card:active{
         background: $grey-dark;
     }
 
@@ -236,7 +236,7 @@ $outline-dark: rgba(202, 202, 202, 0.25);
         outline: 1px solid $outline-dark;
     }
 
-    .list-pill:hover {
+    .list-pill:hover, .list-pill:active{
         background-color: $grey-dark;
     }
 
