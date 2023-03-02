@@ -3,41 +3,97 @@
 html, body {
     margin: 0;
     padding: 0;
+    transition: 250ms;
 }
 
 body {
-    font-family: 'Nunito', Arial, Helvetica, sans-serif;
-    font-size: 14pt;
-
-    line-height: 1.3em;
-
-    padding: 5em 25%;
+    font-family: 'Inter', Arial, Helvietica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 0 25%;
 }
 
-.header-links {
-    a {
-        margin-right: 0.5em;
-    }
-
-    a:last-of-type {
-        margin-right: 0;
-    }
+main {
+    min-height: 40vh;
+    margin-bottom: 200px;
 }
 
-.space {
-    margin-bottom: 2em;
-}
-
-.doublespace {
-    margin-bottom: 4em;
+code {
+    font-family: 'Fira Mono', monospace;
 }
 
 h1, h2, h3, h4, h5, h6 {
     line-height: 1.25;
+    font-weight: 700;
+}
+
+h1:not(.title h1){
+    font-size: 36px;
+    margin-bottom: 0;
+}
+
+.blog-title {
+    margin-top: 64px;
+}
+
+.secondary {
+    margin-top: 4px;
+    margin-bottom: 24px;
+}
+
+@keyframes background-pan {
+    from {
+      background-position: 0% center;
+    }
+    
+    to {
+      background-position: -200% center;
+    }
+  }
+
+h1:hover .magic-text {
+    animation: background-pan 3s linear infinite;
+    background: linear-gradient(
+        263.44deg,
+        $blue-g3 -31.69%,
+        $blue-g2 4.75%,
+        $blue-g4 12.2%,
+        $blue-g4 41.2%,
+        $blue-g2 77.65%,
+      );
+    background-size: 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+    transition: background 100ms;
+}
+
+p .magic-text {
+    animation: background-pan 2s linear infinite;
+    background: linear-gradient(
+        263.44deg,
+        $blue-g2 -31.69%,
+        $blue-g4 12.2%,
+        $blue-g2 41.2%,
+        $blue-g3 77.65%,
+      );
+    background-size: 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+    transition: background 100ms;
 }
 
 img {
     max-width: 100%;
+    border-radius: 5px;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 blockquote {
@@ -47,26 +103,258 @@ blockquote {
 
 code {
     padding: 0.1em 0.2em;
-    font-size: 12pt;
+    // font-size: 12pt;
 }
 
 pre {
     overflow: auto;
-    padding: 0.3em;
+    padding: 1rem;
+    border-radius: 5px;
 
     code {
         padding: 0;
     }
 }
 
-@media all and (max-width: 1200px) {
-    body {
-        padding: 3em 15%;
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 -15%;
+
+    a {
+        margin-right: 0.5em;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    a:last-of-type {
+        margin-right: 0;
+    }
+
+}
+
+.title {
+    display: flex;
+    align-items: baseline;
+
+    h1 {
+        font-size: 28px;
+        margin-right: 0.2em;
     }
 }
 
+.header-links {
+    display: flex;
+}
+
+.button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 100ms;
+}
+
+.intro {
+    margin-top: 4em;
+
+    h1 {
+        margin-bottom: 0;
+    }
+
+    p {
+        margin-top: 14px;
+    }
+}
+
+.listening-activity {
+    margin-top: 4em;
+}
+
+.listening-activity .card {
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 14px;
+    transition: 100ms;
+}
+
+.listening-activity h1 {
+    margin-bottom: 0;
+}
+
+.card {
+    display: flex;
+    // flex-direction: row;
+    // justify-content: center;
+    // align-items: center;
+    padding: 10px 10px;
+    border-radius: 5px;
+    transition: 100ms;
+    // cursor: pointer;
+
+    .album-art {
+        height: 250px;
+        width: 250px;
+        padding: 5px;
+        border-radius: 10px;
+    }
+}
+
+.listening-activity {
+
+    .card {
+        flex-direction: row;
+        word-break: break-word;
+    }
+
+    .card:hover {
+        cursor: pointer;
+    }
+
+    .placeholder {
+        display: flex;
+        flex: 0 0 250px;
+        height: 250px;
+        width: 250px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        margin-right: 16px;
+        
+    }
+
+    .loading {
+        margin: 0;
+    }
+}
+
+
+.now-playing-text {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    p {
+        margin: 0;
+    }
+
+    .track {
+        font-size: 28px;
+        font-weight: 700;
+        // line-height: 150%;
+    }
+
+    .artist {
+        font-size: 16px;
+        margin-bottom: 4px;
+        // margin: 4px 0;
+        // font-weight: 500;
+    }
+
+    .indicator {
+        font-size: 12px;
+        // font-weight: 500;
+    }
+}
+
+.projects {
+    margin-top: 4em;
+
+    .card {
+        flex-direction: column;
+        margin-top: 14px;
+        padding: 14px;
+    }
+
+    h3 {
+        margin: 0;
+    }
+
+    p {
+        margin-top: 14px;
+        margin-bottom: 0px;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+}
+
+.interests {
+    margin-top: 4em;
+}
+
+.pill-list {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 14px;
+}
+
+.list-pill {
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.list-pill > .emoji {
+    padding-right: 10px;
+    margin-right: 5px;
+}
+
+@media all and (max-width: 1200px) {
+    body {
+        padding: 0 15%;
+    }
+}
+
+
 @media all and (max-width: 800px) {
     body {
-        padding: 1em 1em;
+        padding: 0 10%;
+    }
+
+    .header {
+        flex-direction: column;
+
+        h1 {
+            margin-bottom: 0.5em;
+        }
+    }
+
+    .listening-activity .card {
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+    }
+
+    .card .placeholder {
+        margin-right: 0px;
+    }
+}
+
+@media all and (max-width: 320px) {
+    body {
+        padding: 0 2em;
+    }
+
+    .header-links {
+        flex-direction: column;
+    }
+
+    .card .album-art {
+        height: 200px;
+        width: 200px;
+    }
+
+    .card .placeholder {
+        flex: 0 0 200px;
+        height: 200px;
+        width: 200px;
     }
 }

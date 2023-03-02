@@ -1,38 +1,44 @@
-$foreground: #1A1A1A;
-$background: #F8F9FA;
-$secondary: #5C6166;
-$tertiary: #55B4D4;
-$accent: #1A1A1A;
-$card: #EFEFEF;
-$card-hover: #E3E3E3;
+// Colours
+$green: #1DB954;
+$green-active: #1BAB4E;
 
+$red: #EA4E43;
+$red-active: #DB493F;
+$red-g1: #FBBDB9;
+$red-g2: #F2857D;
+$red-g3: #EA4E43;
 
-$foreground-dark: #FFFFFF;
-$background-dark: #1F2430;
-$secondary-dark: #CCCAC2;
-$tertiary-dark: #565B66;
-$accent-dark: #FFFFFF;
-$card-dark: #232833;
-$card-hover-dark: #2B313F;
+$blue: #2483E2;
+$blue-active: #0275D3;
+$blue-g4: #0F6AC0;
+$blue-g3: #2483E2;
+$blue-g2: #4D9EEB;
+$blue-g1: #7AB8F4;
+
+// Light Mode
+$foreground: #040404;
+$background: #FFFFFF;
+$secondary: #656463;
+$grey: #F7F5F2;
+$outline: rgba(101, 100, 99, 0.25);
+
+// Dark Mode
+$foreground-dark: #D4D4D4;
+$background-dark: #191919;
+$secondary-dark: #A0A0A0;
+$grey-dark: #262626;
+$outline-dark: rgba(202, 202, 202, 0.25);
 
 @mixin light-theme {
     color: $foreground;
     background-color: $background;
 
     ::selection {
-    background-color: #4CBF99;
-    }
-
-    .secondary {
-        color: $secondary;
+        background-color: $grey;
     }
 
     a, a:link, a:visited {
-        color: $accent;
-    }
-
-    a:hover {
-        color: darken($accent, 30%);
+        color: $foreground;
     }
 
     blockquote {
@@ -40,22 +46,105 @@ $card-hover-dark: #2B313F;
     }
 
     code {
-        background-color: $tertiary;
+        background-color: $grey;
+    }
+
+    code::selection {
+        background-color: $outline;
+    }
+
+    pre {
+        background-color: $grey;
     }
 
     pre code {
         background-color: transparent;
     }
 
-    .footnote-definition sup {
-        color: $secondary;
+    pre code ::selection {
+        background-color: $outline;
     }
 
     td {
-        border: 1px solid $accent;
+        border: 1px solid $foreground;
         padding: 10px;
     }
 
+    .secondary {
+        color: $secondary;
+    }
+
+    .button:hover {
+        cursor: pointer;
+        background: $grey;
+        transition: 100ms;
+    }
+
+    .active.button {
+        outline: 1px solid $outline;
+    }
+
+    .intro {
+        p, a {
+            color: $secondary;
+        }
+    }
+
+    .placeholder {
+        background-color: $outline;
+    }
+
+    .card {
+        border: 1px solid $outline;
+    }
+
+    .card:hover {
+        background: $grey;
+    }
+
+    .card ::selection {
+        background-color: $outline;
+    }
+
+    .indicator {
+            color: $secondary;
+    }
+
+    .artist {
+        color: $secondary;
+    }
+
+    .list-pill {
+        outline: 1px solid $outline;
+    }
+
+    .list-pill:hover {
+        background-color: $grey;
+    }
+
+    .list-pill > .emoji {
+        border-right: 1px solid $outline;
+    }
+
+    .list-pill::selection {
+        background-color: $outline;
+    }
+
+    footer {
+        border-top: 1px solid $outline;
+    }
+
+    footer > div {
+        color: $secondary;
+    }
+
+    a {
+        color: $secondary;
+    }
+
+    .projects p {
+        color: $secondary;
+}
 }
 
 @mixin dark-theme {
@@ -63,19 +152,11 @@ $card-hover-dark: #2B313F;
     background-color: $background-dark;
 
     ::selection {
-    background-color: #6C5980;
-    }
-
-    .secondary {
-        color: $secondary-dark;
+        background-color: $grey-dark;
     }
 
     a, a:link, a:visited {
-        color: $accent-dark;
-    }
-
-    a:hover {
-        color: lighten($accent-dark, 10%);
+        color: $foreground-dark;
     }
 
     blockquote {
@@ -83,21 +164,93 @@ $card-hover-dark: #2B313F;
     }
 
     code {
-        background-color: $tertiary-dark;
+        background-color: $grey-dark;
+    }
+
+    code::selection {
+        background-color: $outline-dark;
+    }
+
+    pre {
+        background-color: $grey-dark;
     }
 
     pre code {
         background-color: transparent;
     }
 
-    .footnote-definition sup {
-        color: $secondary-dark;
+    pre code ::selection {
+        background-color: $outline-dark;
     }
 
     td {
-        border: 1px solid $accent-dark;
+        border: 1px solid $foreground-dark;
         padding: 10px;      
     }    
+
+    .secondary {
+        color: $secondary-dark;
+    }
+
+    .button:hover {
+        cursor: pointer;
+        background: $grey-dark;
+        transition: 100ms;
+    }
+
+    .active.button {
+        outline: 1px solid $outline-dark;
+    }
+
+    .intro {
+        p, a{
+            color: $secondary-dark;
+        }
+    }
+
+    .placeholder {
+        background-color: $outline-dark;
+    }
+
+    .card {
+        border: 1px solid $outline-dark;
+    }
+
+    .card:hover {
+        background: $grey-dark;
+    }
+
+    .card ::selection {
+        background-color: $outline-dark;
+    }
+
+    .indicator {
+            color: $secondary-dark;
+    }
+
+    .artist {
+        color: $secondary-dark;
+    }
+
+    .list-pill {
+        outline: 1px solid $outline-dark;
+    }
+
+    .list-pill:hover {
+        background-color: $grey-dark;
+    }
+
+    .list-pill > .emoji {
+        border-right: 1px solid $outline-dark;
+    }
+
+    .list-pill::selection {
+        background-color: $outline-dark;
+    }
+
+    .projects p {
+            color: $secondary-dark;
+    }
 
 }
 
@@ -111,13 +264,6 @@ $card-hover-dark: #2B313F;
     body {
         @include dark-theme;
     }
-}
-
-.dark-mode-buttons {
-    position: absolute;
-
-    top: 1em;
-    right: 1em;
 }
 
 .dark-mode-button {

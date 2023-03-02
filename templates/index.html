@@ -11,7 +11,7 @@
     <link rel="icon" href="{{ config.extra.hook_icon | safe }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     {% block rss %}
       <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="atom.xml", trailing_slash=false) }}">
     {% endblock %}
@@ -19,16 +19,25 @@
 
 <body>
     {% block header %}
-    <header class="space">
-        <h1>{{ config.title }}</h1>
+    <header class="header">
+        <div class="title">
+            <a href="{{ config.base_url }}""><h1><span class="magic-text">{{ config.title }}</span></h1></a>
+            <!-- Dark Mode Button -->
+            <div class="dark-mode-buttons">
+                <button class="dark-mode-button" id="dark-mode-on"><img src="{{ get_url(path='dark_mode.svg') }}" width="24" height="24" alt="Dark mode" aria-label="dark mode toggle" title="Dark mode"></button>
+                <button class="dark-mode-button" id="dark-mode-off"><img src="{{ get_url(path='light_mode.svg') }}" width="24" height="24" alt="Light mode" aria-label="light mode toggle" title="Light mode"></button>
+            </div>
+            <script src="/javascript/darkmode.js"></script>
+        </div>
+
         {% set linked_pages = section.pages | filter(attribute="extra.in_header") %}
         {% if config.extra.links or linked_pages %}
         <nav class="header-links">
-            {% for link in config.extra.links %}
-            <a href="{{ link.href }}" target="_blank">{{ link.title }}</a>
-            {% endfor %}
             {% for page in linked_pages %}
-            <a href="{{ page.permalink }}">{{ page.title }}</a>
+            <a href="{{ page.permalink }}" class="button">{{ page.title }}</a>
+            {% endfor %}
+            {% for link in config.extra.links %}
+            <a href="{{ link.href }}" target="_blank" class="button">{{ link.title }}</a>
             {% endfor %}
         </nav>
         {% endif %}
@@ -36,37 +45,112 @@
     {% endblock header %}
 
     {% block content %}
-    {% set blog = get_section(path="blog/_index.md") %}
     <main>
-        <!-- Listening Activity -->
-        <h2>What I'm listening to</h2>
-        <div id="now-playing">Loading...</div>
-        <script type="text/javascript" src="../javascript/music.js"></script>
+        <section>
+            <div class="intro">
+                <h1>Hey! 👋🏻</h1>
+                <p>Welcome to my very own little digital garden. 
+                    I'm Vandam, I study <a href="https://www.bristol.ac.uk/study/undergraduate/2023/engineering-maths/" target="_blank">Engineering Mathematics</a> at the <a href="https://www.bristol.ac.uk" target="_blank">University of Bristol</a>.
+                    I love experimenting, learning and building all sorts; from websites to software to music.</p>
+                <p>Interested in making a site like this? Let's <a href="mailto:hi@vandam.tech">talk</a>!</p>
+            </div>
+        </section>
+        <section>
+            <div class="listening-activity">
+                <h1>What I'm listening to 🎶</h1>
+                <div class="card" id="now-playing">
+                    <div class="placeholder"></div>
+                    <div class="now-playing-text">
+                        <p class="track">Loading Track</p>
+                        <p class="artist">Album - Artist</p>
+                        <p class="indicator">🔮</p>
+                    </div>
+                </div>
+                <script type="text/javascript" src="../javascript/music.js"></script>
+            </div>
+        </section>
 
-        <!-- Projects Section -->
-        <!-- <h2>Projects</h2>
-        <p><a href="/accompany">Accompany</a> (in progress 🚧)</p> -->
+        <section>
+            <div class="projects">
+                <h1>My projects 🔨</h1>
+                <div class="card">
+                    <h3>Accompany</h3>
+                    <p>Music Companion • Web App • Flask • Coming Soon 🏗️</p>
+                </div>
+                <div class="card">
+                    <h3><a href="https://github.com/vandamd/MDM2-Hydro" target="_blank">Evaluating the Viability of Micro-Scale Pumped Hydro Systems</a></h3>
+                    <p>Francis Turbines • Bayesian Optimisation • MATLAB • Python</p>
+                </div>
+                <div class="card">
+                    <h3><a href="https://github.com/vandamd/MDM2-Temperature" target="_blank">Modelling a Central Heating System of Architecture</a></h3>
+                    <p>Heat Transfer • Euler & Adams Method • Ordinary Differential Equations • Python</p>
+                </div>
+                <div class="card">
+                    <h3><a href="https://github.com/vandamd/FP-Assignment" target="_blank">COVID-19 UK Dashboard</a></h3>
+                    <p>Data Visualisation • API • Jupyter Notebook • Python</p>
+                </div>
+                <div class="card">
+                    <h3><a href="https://github.com/vandamd/MDM1-Trees" target="_blank">Modelling the Growth of Douglas Fir</a></h3>
+                    <p>Differential Equations • Maple</p>
+                </div>
+                <div class="card">
+                    <h3><a href="https://github.com/vandamd/MDM1-Networks" target="_blank">Optimising the Connections of Telecommunication Networks</a></h3>
+                    <p>Minimum Spanning Trees • Kruskal's & Prim's Algorithm • Python</p>
+                </div>
+            </div>
+        </section>
 
-        <!-- Posts Section -->
-        {% if blog.pages %}
-            <h2>Posts</h2>
-            {% for post in blog.pages %}
-                <p class="date">{{ post.date }} -
-                    <a href="{{ post.permalink | safe }}">{{ post.title }}</a>
-                </p>
-            {% endfor %}
-        {% endif %}
+        <section>
+            <div class="interests">
+                <h1>My interests 🌿</h1>
+                <div class="pill-list">
+                    <span class="list-pill">
+                        <span class="emoji">🌲</span>
+                        Camping
+                    </span>
+                    <span class="list-pill">
+                        <span class="emoji">🧰</span>
+                        Design
+                    </span> 
+                    <span class="list-pill">
+                        <span class="emoji">🎸</span>
+                        Guitar
+                    </span>
+                    <span class="list-pill">
+                        <span class="emoji">🐧</span>
+                        Linux
+                    </span>
+                    <span class="list-pill">
+                        <span class="emoji">⌨️</span>
+                        Mechanical Keyboards
+                    </span>
+                    <span class="list-pill">
+                        <span class="emoji">🌊</span>
+                        Minimalism
+                    </span>
+                    <span class="list-pill">
+                        <span class="emoji">🎵</span>
+                        Music
+                    </span>
+                    <span class="list-pill">
+                        <span class="emoji">📷</span>
+                        Photography
+                    </span>
+                    <span class="list-pill">
+                        <span class="emoji">📎</span>
+                        Productivity
+                    </span>
+                    <span class="list-pill">
+                        <span class="emoji">🍣</span>
+                        Sushi
+                    </span>
+
+                </div>
+            </div>
+        </section>      
     </main>
     {% endblock content %}
 
-    <!-- Dark Mode Button -->
-    <div class="dark-mode-buttons">
-        <button class="dark-mode-button" id="dark-mode-on"><img src="{{ get_url(path='dark_mode.svg') }}" width="24" height="24" alt="Dark mode" aria-label="dark mode toggle" title="Dark mode"></button>
-        <button class="dark-mode-button" id="dark-mode-off"><img src="{{ get_url(path='light_mode.svg') }}" width="24" height="24" alt="Light mode" aria-label="light mode toggle" title="Light mode"></button>
-    </div>
-    <script src="/javascript/darkmode.js"></script>
-
-    <!-- Hide button if JavaScript is disabled -->
     <noscript>
         <style>
             .dark-mode-buttons {

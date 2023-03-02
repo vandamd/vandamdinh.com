@@ -1,6 +1,7 @@
 +++
 title = "About"
-extra.in_header = true
+
+slug = "about"
 +++
 
 Hey there! 👋🏻

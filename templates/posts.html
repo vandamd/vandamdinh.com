@@ -1,6 +1,7 @@
-{% extends "page.html" %}
+{% extends "index.html" %}
 
-{% block title %}{{ config.title }} | Page Not Found{% endblock title %}
+{% block title %}{{ page.title }}{% endblock title %}
+{% block description %}{{ page.description | default(value=config.description) }}{% endblock description %}
 
 {% block header %}
     <header class="header">
@@ -18,11 +19,15 @@
         {% set linked_pages = blog.pages | filter(attribute="extra.in_header") %}
         {% if config.extra.links or linked_pages %}
         <nav class="header-links">
-            {% for link in config.extra.links %}
-            <a href="{{ link.href }}" target="_blank">{{ link.title }}</a>
-            {% endfor %}
             {% for link in linked_pages %}
-            <a href="{{ link.permalink }}">{{ link.title }}</a>
+            {% if page.title == link.title %}
+            <a class="active button" href="{{ link.permalink }}" >{{ link.title }}</a>
+            {% else %}
+            <a href="{{ link.permalink }}" class="button">{{ link.title }}</a>
+            {% endif %}
+            {% endfor %}
+            {% for link in config.extra.links %}
+            <a href="{{ link.href }}" target="_blank" class="button">{{ link.title }}</a>
             {% endfor %}
         </nav>
         {% endif %}
@@ -31,7 +36,14 @@
 
 {% block content %}
 <main>
-    <h1>Page Not Found (404)</h1>
-    <p>Oops! I think you got lost...</p>
+    {% set blog = get_section(path="blog/_index.md") %}
+    {% if blog.pages %}
+        <h1 class="blog-title">Blog 📝</h1>
+        {% for post in blog.pages %}
+            <p class="date">{{ post.date }} -
+                <a href="{{ post.permalink | safe }}">{{ post.title }}</a>
+            </p>
+        {% endfor %}
+    {% endif %}
 </main>
 {% endblock content %}
