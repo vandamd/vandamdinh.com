@@ -115,7 +115,7 @@ $outline-dark: rgba(202, 202, 202, 0.25);
     }
 
     .list-pill {
-        outline: 1px solid $outline;
+        border: 1px solid $outline;
     }
 
     .list-pill:hover, .list-pill:active{
@@ -233,7 +233,7 @@ $outline-dark: rgba(202, 202, 202, 0.25);
     }
 
     .list-pill {
-        outline: 1px solid $outline-dark;
+        border: 1px solid $outline-dark;
     }
 
     .list-pill:hover, .list-pill:active{
