@@ -4,14 +4,12 @@ function updateLoadingText() {
     const loadingText = document.getElementById('now-playing');
     dots = (dots + 1) % 4; // cycle through dots
     loadingText.innerHTML = `
-    
     <div class="placeholder"></div>
     <div class="now-playing-text">
         <p class="track">Loading Track${'.'.repeat(dots)}</p>
         <p class="artist">Album - Artist</p>
-        <p class="indicator">🔮</p>
+        <p class="indicator">Probably John Mayer</p>
     </div>
-    
     `;
 }
 
@@ -39,7 +37,6 @@ fetch(url)
     if (track['@attr'] && track['@attr'].nowplaying === 'true') {
         // Update the page with the artist and song name
         document.getElementById('now-playing').innerHTML = `
-
         <a href="${track.url}" target="_blank" class="track-link"></a>
         <div class="placeholder"><img src="${art}" alt="${album}" class="album-art"></div>
         <div class="now-playing-text">
@@ -47,8 +44,6 @@ fetch(url)
             <p class="artist">${track.album['#text']} - ${track.artist['#text']}</p>
             <p class="indicator"><span class="magic-text">Now Playing</span></p>
         </div>
-        
-        
         `;
     } else {
         const trackDate = new Date(track.date['#text']);
@@ -77,7 +72,6 @@ fetch(url)
 
         // Show the latest track that was played
         document.getElementById('now-playing').innerHTML = `
-        
         <a href="${track.url}" target="_blank" class="track-link"></a>
         <div class="placeholder"><img src="${art}" alt="${album}" class="album-art"></div>
         <div class="now-playing-text">
@@ -85,7 +79,6 @@ fetch(url)
             <p class="artist">${track.album['#text']} - ${track.artist['#text']}</p>
             <p class="indicator">${formattedDate}</p>
         </div>
-        
         `;
     }
 
