@@ -37,8 +37,22 @@ $outline-dark: rgba(202, 202, 202, 0.25);
         background-color: $grey;
     }
 
+    .header, .projects {
+        a, a:link, a:visited {
+            color: $foreground;
+        }
+    }
+
     a, a:link, a:visited {
+        color: $secondary;
+    }
+
+    .track {
         color: $foreground;
+    }
+    
+    p, li {
+        color: $secondary;
     }
 
     blockquote {
@@ -66,8 +80,9 @@ $outline-dark: rgba(202, 202, 202, 0.25);
     }
 
     td {
-        border: 1px solid $foreground;
+        border: 1px solid $secondary;
         padding: 10px;
+        color: $secondary;
     }
 
     .secondary {
@@ -155,8 +170,22 @@ $outline-dark: rgba(202, 202, 202, 0.25);
         background-color: $grey-dark;
     }
 
+    .header, .projects {
+        a, a:link, a:visited {
+            color: $foreground-dark;
+        }
+    }
+
     a, a:link, a:visited {
+        color: $secondary-dark;
+    }
+
+    .track {
         color: $foreground-dark;
+    }
+
+    p, li {
+        color: $secondary-dark;
     }
 
     blockquote {
@@ -184,8 +213,9 @@ $outline-dark: rgba(202, 202, 202, 0.25);
     }
 
     td {
-        border: 1px solid $foreground-dark;
+        border: 1px solid $secondary-dark;
         padding: 10px;      
+        color: $secondary-dark;
     }    
 
     .secondary {
