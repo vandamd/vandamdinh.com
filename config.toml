@@ -24,7 +24,7 @@ highlight_theme = "css"
 [extra]
 links = [
     { title = "RSS", href = "/atom.xml" },
-    { title = "Resume", href = "/resume.pdf" },
+    { title = "Resume", href = "/Resume.pdf" },
     { title = "GitHub", href = "https://github.com/vandamd"},
     { title = "Mail", href = "mailto:hi@vandam.tech" },
     # { title = "Blog", href = "/posts"},
