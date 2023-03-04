@@ -105,6 +105,10 @@ $outline-dark: rgba(202, 202, 202, 0.25);
         }
     }
 
+    .placeholder {
+        background: $outline;
+    }
+
     .card {
         border: 1px solid $outline;
     }
@@ -232,6 +236,10 @@ $outline-dark: rgba(202, 202, 202, 0.25);
         p, a{
             color: $secondary-dark;
         }
+    }
+
+    .placeholder {
+        background: $outline-dark;
     }
 
     .card {
