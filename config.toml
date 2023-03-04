@@ -27,9 +27,6 @@ links = [
     { title = "Resume", href = "/Resume.pdf" },
     { title = "GitHub", href = "https://github.com/vandamd"},
     { title = "Mail", href = "mailto:hi@vandam.tech" },
-    # { title = "Blog", href = "/posts"},
-    # { title = "About", href = "/about"},
-    # ...
 ]
 
 hook_icon = "/favicon.svg"

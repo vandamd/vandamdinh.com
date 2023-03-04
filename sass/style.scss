@@ -103,7 +103,6 @@ blockquote {
 
 code {
     padding: 0.1em 0.2em;
-    // font-size: 12pt;
 }
 
 pre {
@@ -188,19 +187,14 @@ pre {
 
 .card {
     display: flex;
-    // flex-direction: row;
-    // justify-content: center;
-    // align-items: center;
     padding: 10px 10px;
     border-radius: 5px;
     transition: 100ms;
-    // cursor: pointer;
 
     .album-art {
         height: 250px;
         width: 250px;
-        padding: 5px;
-        border-radius: 10px;
+        border-radius: 5px;
     }
 }
 
@@ -217,10 +211,10 @@ pre {
 
     .placeholder {
         display: flex;
-        flex: 0 0 250px;
+        // flex: 0 0 250px;
         height: 250px;
         width: 250px;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
         border-radius: 5px;
         margin-right: 16px;
@@ -229,6 +223,10 @@ pre {
 
     .loading {
         margin: 0;
+    }
+
+    img {
+        max-width: none;
     }
 }
 
@@ -245,19 +243,15 @@ pre {
     .track {
         font-size: 28px;
         font-weight: 700;
-        // line-height: 150%;
     }
 
     .artist {
         font-size: 16px;
         margin-bottom: 4px;
-        // margin: 4px 0;
-        // font-weight: 500;
     }
 
     .indicator {
         font-size: 12px;
-        // font-weight: 500;
     }
 }
 
@@ -311,8 +305,8 @@ pre {
     }
 }
 
+@media all and (max-width: 650px) {
 
-@media all and (max-width: 800px) {
     body {
         padding: 0 10%;
     }
@@ -330,31 +324,26 @@ pre {
         justify-content: center;
         flex-direction: column;
         align-content: center;
-        align-items: center;
+        align-items: start;
     }
 
     .card .placeholder {
+        width: 100%;
+        height: auto;
         margin-right: 0px;
+        margin-bottom: 8px;
+    }
+    
+    .card .album-art {
+        width: 100%;
+        height: auto;
     }
 }
 
 @media all and (max-width: 320px) {
-    body {
-        padding: 0 2em;
-    }
 
     .header-links {
         flex-direction: column;
     }
 
-    .card .album-art {
-        height: 200px;
-        width: 200px;
-    }
-
-    .card .placeholder {
-        flex: 0 0 200px;
-        height: 200px;
-        width: 200px;
-    }
 }
