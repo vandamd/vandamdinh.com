@@ -4,7 +4,7 @@ function updateLoadingText() {
     const loadingText = document.getElementById('now-playing');
     dots = (dots + 1) % 4; // cycle through dots
     loadingText.innerHTML = `
-    <div class="placeholder"><img class="album-art" src="https://lastfm.freetls.fastly.net/i/u/300x300/debb423cbaba4e17cecb7b2c3d18f189.png"></img></div>
+    <div class="placeholder"><img class="album-art" src="/continuum.jpg"></img></div>
     <div class="now-playing-text">
         <p class="track">Loading Track${'.'.repeat(dots)}</p>
         <p class="artist">Probably Continuum - John Mayer</p>
