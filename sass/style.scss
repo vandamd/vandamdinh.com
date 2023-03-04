@@ -301,18 +301,19 @@ pre {
 
 @media all and (max-width: 1200px) {
     body {
-        padding: 0 15%;
+        padding: 0 20%;
     }
 }
 
 @media all and (max-width: 650px) {
 
     body {
-        padding: 0 10%;
+        padding: 0 5%;
     }
 
     .header {
         flex-direction: column;
+        margin: 0;
 
         h1 {
             margin-bottom: 0.5em;
