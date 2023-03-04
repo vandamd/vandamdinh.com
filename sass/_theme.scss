@@ -96,7 +96,7 @@ $outline-dark: rgba(202, 202, 202, 0.25);
     }
 
     .active.button {
-        outline: 1px solid $outline;
+        border: 1px solid $outline;
     }
 
     .intro {
@@ -229,7 +229,7 @@ $outline-dark: rgba(202, 202, 202, 0.25);
     }
 
     .active.button {
-        outline: 1px solid $outline-dark;
+        border: 1px solid $outline-dark;
     }
 
     .intro {
