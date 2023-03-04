@@ -52,7 +52,7 @@ h1:not(.title h1){
   }
 
 h1:hover .magic-text, h1:active .magic-text {
-    animation: background-pan 3s linear infinite;
+    animation: background-pan 2s linear infinite;
     background: linear-gradient(
         263.44deg,
         $blue-g3 -31.69%,
@@ -69,8 +69,25 @@ h1:hover .magic-text, h1:active .magic-text {
     transition: background 100ms;
 }
 
+p .magic-text-purple {
+    animation: background-pan 2.5s linear infinite;
+    background: linear-gradient(
+        263.44deg,
+        $purple-g2 -21.69%,
+        $purple-g4 12.2%,
+        $purple-g2 41.2%,
+        $purple-g3 67.65%,
+      );
+    background-size: 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    // white-space: nowrap;
+    transition: background 100ms;
+}
+
 p .magic-text {
-    animation: background-pan 2s linear infinite;
+    animation: background-pan 1s linear infinite;
     background: linear-gradient(
         263.44deg,
         $blue-g2 -31.69%,
@@ -82,7 +99,7 @@ p .magic-text {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    white-space: nowrap;
+    // white-space: nowrap;
     transition: background 100ms;
 }
 
@@ -218,7 +235,6 @@ pre {
         justify-content: center;
         border-radius: 5px;
         margin-right: 16px;
-        
     }
 
     .loading {
@@ -229,7 +245,6 @@ pre {
         max-width: none;
     }
 }
-
 
 .now-playing-text {
     display: flex;
@@ -243,6 +258,8 @@ pre {
     .track {
         font-size: 28px;
         font-weight: 700;
+        // line-height: 90%;
+        margin-top: 4px;
     }
 
     .artist {
@@ -253,6 +270,29 @@ pre {
     .indicator {
         font-size: 12px;
     }
+}
+
+.card .skeleton {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: translateX(-100%);
+        animation: shimmer 2s infinite;
+        content: '';
+      }
+    
+      @keyframes shimmer {
+        100% {
+          transform: translateX(100%);
+        }
+      }
 }
 
 .projects {

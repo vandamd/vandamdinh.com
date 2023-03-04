@@ -15,6 +15,12 @@ $blue-g3: #2483E2;
 $blue-g2: #4D9EEB;
 $blue-g1: #7AB8F4;
 
+$purple: #8A3AB9;
+$purple-g4: #6A2C9F;
+$purple-g3: #8A3AB9;
+$purple-g2: #A763D1;
+$purple-g1: #C48BEB;
+
 // Light Mode
 $foreground: #040404;
 $background: #FFFFFF;
@@ -129,6 +135,23 @@ $outline-dark: rgba(202, 202, 202, 0.25);
         color: $secondary;
     }
 
+    .skeleton {
+        background: $outline;
+        color: transparent;
+    }
+
+    .card .skeleton {    
+        &::after {
+            background-image: linear-gradient(
+              90deg,
+              rgba($background, 0) 0,
+              rgba($background, 0.2) 20%,
+              rgba($background, 0.5) 60%,
+              rgba($background, 0)
+            );
+          }
+    }
+
     .list-pill {
         border: 1px solid $outline;
     }
@@ -159,7 +182,7 @@ $outline-dark: rgba(202, 202, 202, 0.25);
 
     .projects p {
         color: $secondary;
-}
+    }
 }
 
 @mixin dark-theme {
@@ -260,6 +283,23 @@ $outline-dark: rgba(202, 202, 202, 0.25);
 
     .artist {
         color: $secondary-dark;
+    }
+
+    .skeleton {
+        background: $outline-dark;
+        color: transparent;
+    }
+
+    .card .skeleton {    
+        &::after {
+            background-image: linear-gradient(
+              90deg,
+              rgba($background-dark, 0) 0,
+              rgba($background-dark, 0.2) 20%,
+              rgba($background-dark, 0.3) 60%,
+              rgba($background-dark, 0)
+            );
+          }
     }
 
     .list-pill {
