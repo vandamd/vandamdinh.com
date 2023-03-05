@@ -152,6 +152,16 @@
     </main>
     {% endblock content %}
 
+    {% block footer %}
+    <footer>
+        <div class="footer-content">
+            <p>🫶🏻 Vandam</p>
+            <p><a href="{{ get_url(path="atom.xml") }}" target="_blank" >RSS</a>
+            <a href="https://github.com/vandamd/vandam.tech" target="_blank">Source</a></p>
+        </div>
+    </footer>
+    {% endblock footer %}
+
     <noscript>
         <style>
             .dark-mode-buttons {

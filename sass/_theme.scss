@@ -168,20 +168,20 @@ $outline-dark: rgba(202, 202, 202, 0.25);
         background-color: $outline;
     }
 
-    footer {
-        border-top: 1px solid $outline;
-    }
-
-    footer > div {
-        color: $secondary;
-    }
-
     a {
         color: $secondary;
     }
 
     .projects p {
         color: $secondary;
+    }
+
+    .footer-content {
+        border-top: 1px solid $outline;
+
+        p, a {
+            color: $secondary;
+        }
     }
 }
 
@@ -320,6 +320,14 @@ $outline-dark: rgba(202, 202, 202, 0.25);
 
     .projects p {
             color: $secondary-dark;
+    }
+
+    .footer-content {
+        border-top: 1px solid $outline-dark;
+
+        p, a {
+            color: $secondary-dark;
+        }
     }
 
 }

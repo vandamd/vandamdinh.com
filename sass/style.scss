@@ -339,10 +339,33 @@ pre {
     margin-right: 5px;
 }
 
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 -15%;
+    padding: 0 5%; 
+
+    a {
+        margin-right: 0.5em;
+        text-decoration: none;
+    }
+
+    a:last-of-type {
+        margin-right: 0;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+
 @media all and (max-width: 1200px) {
     body {
         padding: 0 20%;
     }
+
 }
 
 @media all and (max-width: 650px) {
@@ -378,6 +401,10 @@ pre {
     .card .album-art {
         width: 100%;
         height: auto;
+    }
+
+    .footer-content {
+        margin: 0 0;
     }
 }
 
