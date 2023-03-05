@@ -1,11 +1,9 @@
-This is the source code for my personal site [vandam.tech](https://vandam.tech)
+# vandam.tech
 
-Powered by [Zola](https://github.com/getzola/zola)
+This is the source code for my personal site [vandam.tech](https://vandam.tech).
 
-Theme based on [Hook](https://github.com/InputUsername/zola-hook)
+Built using [Zola](https://github.com/getzola/zola), and hosted here on GitHub Pages using [Zola deploy action](https://github.com/shalzz/zola-deploy-action).
 
-Hosted here on GitHub Pages, built using the [Zola deploy action](https://github.com/shalzz/zola-deploy-action)
+Original theme based on [Hook](https://github.com/InputUsername/zola-hook).
 
-Colours from [Ayu](https://github.com/ayu-theme/ayu-colors)
-
-Music feed data from [last.fm API](https://www.last.fm/api#getting-started)
+Music feed data from [last.fm API](https://www.last.fm/api#getting-started).
