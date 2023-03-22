@@ -322,6 +322,52 @@ pre {
     }
 }
 
+.photos {
+    margin-top: 4em;
+}
+
+// .photo {
+//     transition: 50ms;
+// }
+
+.photo:hover {
+    // cursor: pointer;
+    filter: brightness(0.9);
+}
+
+.photos {
+    .block-1 {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin-top: 14px;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    .portrait {
+        width: calc(33% - 7px);
+    }
+
+    .portraits {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .landscape {
+        width: calc(50% - 7px);
+    }
+
+    .landscapes {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
 .interests {
     margin-top: 4em;
 }
