@@ -41,6 +41,8 @@
     <p class="secondary">{{ page.date | date(format="%-d %B, %Y") }}</p>
     {% endif %}
     <div class="space"></div>
-    {{ page.content | safe }}
+    <div class="blog-content">
+        {{ page.content | safe }}
+    </div>
 </main>
 {% endblock content %}
