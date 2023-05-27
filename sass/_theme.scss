@@ -61,6 +61,10 @@ $outline-dark: rgba(202, 202, 202, 0.25);
         color: $secondary;
     }
 
+    .update-s p {
+        color: $foreground
+    }
+
     blockquote {
         border-left: 2px solid $secondary;
     }
@@ -209,6 +213,10 @@ $outline-dark: rgba(202, 202, 202, 0.25);
 
     p, li {
         color: $secondary-dark;
+    }
+
+    .update-s p {
+        color: $foreground-dark
     }
 
     blockquote {
