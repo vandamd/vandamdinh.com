@@ -1,0 +1,53 @@
+{% extends "index.html" %}
+
+{% block title %}{{ page.title }}{% endblock title %}
+{% block description %}{{ page.description | default(value=config.description) }}{% endblock description %}
+
+{% block header %}
+    <header class="header">
+        <div class="title">
+            <a href="{{ config.base_url }}""><h1><span class="magic-text">{{ config.title }}</span></h1></a>
+            <!-- Dark Mode Button -->
+            <div class="dark-mode-buttons">
+                <button class="dark-mode-button" id="dark-mode-on"><img src="{{ get_url(path='dark_mode.svg') }}" width="24" height="24" alt="Dark mode" aria-label="dark mode toggle" title="Dark mode"></button>
+                <button class="dark-mode-button" id="dark-mode-off"><img src="{{ get_url(path='light_mode.svg') }}" width="24" height="24" alt="Light mode" aria-label="light mode toggle" title="Light mode"></button>
+            </div>
+            <script src="/javascript/darkmode.js"></script>
+        </div>
+
+        {% set blog = get_section(path="_index.md") %}
+        {% set linked_pages = blog.pages | filter(attribute="extra.in_header") %}
+        {% if config.extra.links or linked_pages %}
+        <nav class="header-links">
+            {% for link in linked_pages %}
+            {% if page.title == link.title %}
+            <a class="active button" href="{{ link.permalink }}" >{{ link.title }}</a>
+            {% else %}
+            <a href="{{ link.permalink }}" class="button">{{ link.title }}</a>
+            {% endif %}
+            {% endfor %}
+            {% for link in config.extra.links %}
+            <a href="{{ link.href }}" target="_blank" class="button">{{ link.title }}</a>
+            {% endfor %}
+        </nav>
+        {% endif %}
+    </header>
+{% endblock header %}
+
+{% block content %}
+<main class="thoughts">
+    {% set blog = get_section(path="posts/_index.md") %}
+    {% if blog.pages %}
+        {% for post in blog.pages %}
+            <div class="update">
+                <div class="update-t">
+                    <p class="date">{{ post.date | date(format="%Y/%m/%d %H:%M") }}</p>
+                </div>
+                <div class="update-s">
+                    {{ post.content | safe }}
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+</main>
+{% endblock content %}
