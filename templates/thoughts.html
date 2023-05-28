@@ -48,7 +48,7 @@
         {% for post in blog.pages %}
             <div class="update">
                 <div class="update-t">
-                    <p class="date">{{ post.date | date(format="%Y/%m/%d %H:%M") }}</p>
+                    <p class="date">{{ post.date | date(format="%d/%m/%Y %H:%M") }}</p>
                 </div>
                 <div class="update-s">
                     {{ post.content | safe }}
