@@ -49,7 +49,7 @@ fetch(url)
             } 
             else {
             // Use the original date in YYYY-MM-DD HH:MM format
-            formattedDate = trackDate.toISOString().slice(0, 10) + ", " + trackDate.toISOString().slice(11, 16);
+            formattedDate = trackDate.toISOString().slice(0, 10) + " " + trackDate.toISOString().slice(11, 16);
             }
 
             // Show the latest track that was played
@@ -113,7 +113,7 @@ fetch(url)
         } 
         else {
         // Use the original date in DD-MM-YYYY HH:MM format
-        formattedDate = trackDate.toISOString().slice(0, 10) + trackDate.toISOString().slice(11, 16);
+        formattedDate = trackDate.toISOString().slice(0, 10) + " " + trackDate.toISOString().slice(11, 16);
         }
 
         // Show the latest track that was played
