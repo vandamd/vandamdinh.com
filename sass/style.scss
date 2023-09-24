@@ -177,8 +177,28 @@ img {
 
     .thoughts {
         .posts {
-            width: 70%;
+            width: 90%;
         }
+
+        .back {
+            font-size: 1.1em;
+        }
+
+        .update-s {
+            p {
+                font-size: 1.2em;
+            }
+        }
+
+        .update-t {
+            font-size: 1em;
+
+            img {
+                width: 8%;
+                height: 8%;
+            }
+        }
+
     }
 }
 
