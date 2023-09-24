@@ -1,32 +1,9 @@
-// Colours
-$green: #1DB954;
-$green-active: #1BAB4E;
-
-$red: #EA4E43;
-$red-active: #DB493F;
-$red-g1: #FBBDB9;
-$red-g2: #F2857D;
-$red-g3: #EA4E43;
-
-$blue: #2483E2;
-$blue-active: #0275D3;
-$blue-g4: #0F6AC0;
-$blue-g3: #2483E2;
-$blue-g2: #4D9EEB;
-$blue-g1: #7AB8F4;
-
-$purple: #8A3AB9;
-$purple-g4: #6A2C9F;
-$purple-g3: #8A3AB9;
-$purple-g2: #A763D1;
-$purple-g1: #C48BEB;
-
 // Light Mode
-$foreground: #040404;
+$foreground: #000000;
 $background: #FFFFFF;
 $secondary: #656463;
-$grey: #F7F5F2;
-$outline: rgba(101, 100, 99, 0.25);
+$grey: #F7F7F7;
+$outline: rgba(101, 100, 99, 0.15);
 
 // Dark Mode
 $foreground-dark: #D4D4D4;
@@ -39,154 +16,41 @@ $outline-dark: rgba(202, 202, 202, 0.25);
     color: $foreground;
     background-color: $background;
 
-    ::selection {
-        background-color: $grey;
-    }
-
-    .header, .projects {
-        a, a:link, a:visited {
-            color: $foreground;
-        }
-    }
-
-    a, a:link, a:visited {
-        color: $secondary;
-    }
-
-    .track {
+    p, a, a:link, a:visited {
         color: $foreground;
-    }
-    
-    p, li {
-        color: $secondary;
-    }
-
-    .update-s p {
-        color: $foreground
-    }
-
-    blockquote {
-        border-left: 2px solid $secondary;
-    }
-
-    code {
-        background-color: $grey;
-    }
-
-    code::selection {
-        background-color: $outline;
-    }
-
-    pre {
-        background-color: $grey;
-    }
-
-    pre code {
-        background-color: transparent;
-    }
-
-    pre code ::selection {
-        background-color: $outline;
-    }
-
-    td {
-        border: 1px solid $secondary;
-        padding: 10px;
-        color: $secondary;
-    }
-
-    .secondary {
-        color: $secondary;
-    }
-
-    .button:hover , .button:active {
-        cursor: pointer;
-        background: $grey;
-        transition: 100ms;
-    }
-
-    .active.button {
-        border: 1px solid $outline;
-    }
-
-    .intro {
-        p, a {
-            color: $secondary;
-        }
     }
 
     .placeholder {
-        background: $outline;
-    }
-
-    .card {
-        border: 1px solid $outline;
-    }
-
-    .card:hover, .card:active{
         background: $grey;
     }
 
-    .card ::selection {
-        background-color: $outline;
-    }
-
-    .indicator {
-            color: $secondary;
-    }
-
-    .artist {
-        color: $secondary;
-    }
-
-    .skeleton {
-        background: $outline;
-        color: transparent;
-    }
-
-    .card .skeleton {    
-        &::after {
-            background-image: linear-gradient(
-              90deg,
-              rgba($background, 0) 0,
-              rgba($background, 0.2) 20%,
-              rgba($background, 0.5) 60%,
-              rgba($background, 0)
-            );
-          }
-    }
-
-    .list-pill {
-        border: 1px solid $outline;
-    }
-
-    .list-pill:hover, .list-pill:active{
+    .button {
         background-color: $grey;
     }
 
-    .list-pill > .emoji {
-        border-right: 1px solid $outline;
-    }
-
-    .list-pill::selection {
+    .button:hover {
         background-color: $outline;
     }
 
-    a {
-        color: $secondary;
-    }
+    .thoughts {
+        .update-s p {
+            background-color: $grey;
+        }
 
-    .projects p {
-        color: $secondary;
-    }
-
-    .footer-content {
-        border-top: 1px solid $outline;
-
-        p, a {
+        .update-t p {
             color: $secondary;
         }
+
+        a {
+            color: $secondary;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
     }
+
 }
 
 @mixin dark-theme {
@@ -197,148 +61,62 @@ $outline-dark: rgba(202, 202, 202, 0.25);
         background-color: $grey-dark;
     }
 
-    .header, .projects {
-        a, a:link, a:visited {
-            color: $foreground-dark;
-        }
-    }
-
-    a, a:link, a:visited {
-        color: $secondary-dark;
-    }
-
-    .track {
+    p, a, a:link, a:visited {
         color: $foreground-dark;
-    }
-
-    p, li {
-        color: $secondary-dark;
-    }
-
-    .update-s p {
-        color: $foreground-dark
-    }
-
-    blockquote {
-        border-left: 2px solid $secondary-dark;
-    }
-
-    code {
-        background-color: $grey-dark;
-    }
-
-    code::selection {
-        background-color: $outline-dark;
-    }
-
-    pre {
-        background-color: $grey-dark;
-    }
-
-    pre code {
-        background-color: transparent;
-    }
-
-    pre code ::selection {
-        background-color: $outline-dark;
-    }
-
-    td {
-        border: 1px solid $secondary-dark;
-        padding: 10px;      
-        color: $secondary-dark;
-    }    
-
-    .secondary {
-        color: $secondary-dark;
-    }
-
-    .button:hover, .button:active{
-        cursor: pointer;
-        background: $grey-dark;
-        transition: 100ms;
-    }
-
-    .active.button {
-        border: 1px solid $outline-dark;
-    }
-
-    .intro {
-        p, a{
-            color: $secondary-dark;
-        }
     }
 
     .placeholder {
         background: $outline-dark;
     }
 
-    .card {
-        border: 1px solid $outline-dark;
-    }
-
-    .card:hover, .card:active{
-        background: $grey-dark;
-    }
-
-    .card ::selection {
-        background-color: $outline-dark;
-    }
-
-    .indicator {
-            color: $secondary-dark;
-    }
-
-    .artist {
-        color: $secondary-dark;
-    }
-
-    .skeleton {
-        background: $outline-dark;
-        color: transparent;
-    }
-
-    .card .skeleton {    
-        &::after {
-            background-image: linear-gradient(
-              90deg,
-              rgba($background-dark, 0) 0,
-              rgba($background-dark, 0.2) 20%,
-              rgba($background-dark, 0.3) 60%,
-              rgba($background-dark, 0)
-            );
-          }
-    }
-
-    .list-pill {
-        border: 1px solid $outline-dark;
-    }
-
-    .list-pill:hover, .list-pill:active{
+    .button {
         background-color: $grey-dark;
     }
 
-    .list-pill > .emoji {
-        border-right: 1px solid $outline-dark;
-    }
-
-    .list-pill::selection {
+    .button:hover {
         background-color: $outline-dark;
     }
 
-    .projects p {
-            color: $secondary-dark;
-    }
+    .thoughts {
+        .update-s p {
+            background-color: $grey-dark;
+        }
 
-    .footer-content {
-        border-top: 1px solid $outline-dark;
-
-        p, a {
+        .update-t p {
             color: $secondary-dark;
+        }
+
+        a {
+            color: $secondary-dark;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (prefers-color-scheme: light) {
     body {

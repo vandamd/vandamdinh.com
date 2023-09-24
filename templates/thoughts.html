@@ -3,58 +3,46 @@
 {% block title %}{{ page.title }}{% endblock title %}
 {% block description %}{{ page.description | default(value=config.description) }}{% endblock description %}
 
-{% block header %}
-    <header class="header">
-        <div class="title">
-            <a href="{{ config.base_url }}""><h1><span class="magic-text">{{ config.title }}</span></h1></a>
-            <!-- Dark Mode Button -->
-            <div class="dark-mode-buttons">
-                <button class="dark-mode-button" id="dark-mode-on"><img src="{{ get_url(path='dark_mode.svg') }}" width="24" height="24" alt="Dark mode" aria-label="dark mode toggle" title="Dark mode"></button>
-                <button class="dark-mode-button" id="dark-mode-off"><img src="{{ get_url(path='light_mode.svg') }}" width="24" height="24" alt="Light mode" aria-label="light mode toggle" title="Light mode"></button>
+{% block content %}
+<main class="thoughts">
+    <div class="posts">
+        <div class="update">
+            <div class="update-s">
+                <a href="/" class="back">← Back</a>
+                <p>Hey there! 👋🏻</p>
+                <p>Here you can find my various thoughts about everything and anything.</p>
+                <p>This was heavily inspired by <a href="https://stream.thesephist.com/" target="_blank">the stream</a> by Linus, albeit simpler and without the fancy private interface.</p>
+                <p>I use a <a href="https://stream.thesephist.com/" target="_blank">Raycast</a> bash script to publish posts, I'll probably write about this once it's all polished up!</p>
+                <p>Think of this as my personal Twitter feed, just without all the noise.</p>
+                <p>You can "follow" this via <a href="/atom.xml" target="_blank">RSS</a> if you'd like to.</p>
+                <p>I saw this website layout by <a href="https://endless.design" target="_blank">Endless</a> and thought I'd have a go replicating it.</p>
+                <p>Kudos to them!</p>
             </div>
-            <script src="/javascript/darkmode.js"></script>
+            <div class="update-t">
+                <img src="photos/profile.png">
+                <p>Just now</p>
         </div>
 
-        {% set blog = get_section(path="_index.md") %}
-        {% set linked_pages = blog.pages | filter(attribute="extra.in_header") %}
-        {% if config.extra.links or linked_pages %}
-        <nav class="header-links">
-            {% for link in linked_pages %}
-            {% if page.title == link.title %}
-            <a class="active button" href="{{ link.permalink }}" >{{ link.title }}</a>
-            {% else %}
-            <a href="{{ link.permalink }}" class="button">{{ link.title }}</a>
-            {% endif %}
+
+        {% set blog = get_section(path="posts/_index.md") %}
+        {% if blog.pages %}
+            {% for post in blog.pages %}
+                <div class="update">
+                    <div class="update-s">
+                        {{ post.content | safe }}
+                    </div>
+                    <div class="update-t">
+                        <img src="photos/profile.png">
+                        <p>{{ post.date | date(format="%d %b %Y, %H:%M") }}</p>
+                    </div>
+                </div>
             {% endfor %}
-            {% for link in config.extra.links %}
-            <a href="{{ link.href }}" target="_blank" class="button">{{ link.title }}</a>
-            {% endfor %}
-        </nav>
         {% endif %}
-    </header>
-{% endblock header %}
-
-{% block content %}
-<div class="intro card">
-    <h1>Thoughts 💭</h1>
-    <p>Here you can find my various thoughts and ideas about everything and anything, probably music. This was heavily inspired by <a href="https://stream.thesephist.com/" target="_blank">the stream</a> by Linus, albeit simpler and without the fancy private interface. You can read all about their motivation <a href="https://stream.thesephist.com/about/">here</a>, as I essentially think the same.</p>
-    <p>Each post is a markdown file and I use a <a href="https://raycast.com" target="_blank">Raycast</a> bash script to publish posts, I'll probably write about this once it's all polished up!</p>
-    <p>Since I don't use social media, think of this as my personal Twitter feed, just without all the noise. You can also 'follow' this via <a href="{{ get_url(path="atom.xml") }}" target="_blank" >RSS</a>.</p>
-</div>
-
-<main class="thoughts">
-    {% set blog = get_section(path="posts/_index.md") %}
-    {% if blog.pages %}
-        {% for post in blog.pages %}
-            <div class="update">
-                <div class="update-t">
-                    <p class="date">{{ post.date | date(format="%d/%m/%Y %H:%M") }}</p>
-                </div>
-                <div class="update-s">
-                    {{ post.content | safe }}
-                </div>
-            </div>
-        {% endfor %}
-    {% endif %}
+    </div>
 </main>
+<section>
+    <div class="links">
+        <p>🫰🏻</p>
+    </div>
+</section>
 {% endblock content %}

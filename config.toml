@@ -22,11 +22,4 @@ highlight_code = true
 highlight_theme = "css"
 
 [extra]
-links = [
-    # { title = "RSS", href = "/atom.xml" },
-    { title = "Resume", href = "/Resume.pdf" },
-    { title = "GitHub", href = "https://github.com/vandamd"},
-    { title = "Mail", href = "mailto:hi@vandam.tech" },
-]
-
 hook_icon = "/favicon.svg"

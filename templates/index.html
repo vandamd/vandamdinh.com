@@ -9,189 +9,98 @@
     <link rel="stylesheet" href="{{ get_url(path='style.css', cachebust=true) }}">
     {% endblock extra_head %}
     <link rel="icon" href="{{ config.extra.hook_icon | safe }}">
-    <link rel="preconnect" href="https://rsms.me/">
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
     {% block rss %}
       <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="atom.xml", trailing_slash=false) }}">
     {% endblock %}
 </head>
 
 <body>
-    {% block header %}
-    <header class="header">
-        <div class="title">
-            <a href="{{ config.base_url }}""><h1><span class="magic-text">{{ config.title }}</span></h1></a>
-            <!-- Dark Mode Button -->
-            <div class="dark-mode-buttons">
-                <button class="dark-mode-button" id="dark-mode-on"><img src="{{ get_url(path='dark_mode.svg') }}" width="24" height="24" alt="Dark mode" aria-label="dark mode toggle" title="Dark mode"></button>
-                <button class="dark-mode-button" id="dark-mode-off"><img src="{{ get_url(path='light_mode.svg') }}" width="24" height="24" alt="Light mode" aria-label="light mode toggle" title="Light mode"></button>
-            </div>
-            <script src="/javascript/darkmode.js"></script>
-        </div>
-
-        {% set linked_pages = section.pages | filter(attribute="extra.in_header") %}
-        {% if config.extra.links or linked_pages %}
-        <nav class="header-links">
-            {% for page in linked_pages %}
-            <a href="{{ page.permalink }}" class="button">{{ page.title }}</a>
-            {% endfor %}
-            {% for link in config.extra.links %}
-            <a href="{{ link.href }}" target="_blank" class="button">{{ link.title }}</a>
-            {% endfor %}
-        </nav>
-        {% endif %}
-    </header>
-    {% endblock header %}
+    <script src="/javascript/darkmode.js"></script>
 
     {% block content %}
     <main>
+        <div class="links">
+            <a>Vandam Dinh.</a>
+            <a>Software Engineer Intern, Dyson.</a>
+        </div>
+
+        <div class="links">
+            <img class="profile-image" src="photos/me.png">
+        </div>
+
         <section>
-            <div class="intro">
-                <h1>Hey! 👋🏻</h1>
-                <p>Welcome to my very own little digital garden. 
-                    I'm Vandam, I study <a href="https://www.bristol.ac.uk/study/undergraduate/2023/engineering-maths/" target="_blank">Engineering Mathematics</a> at the <a href="https://www.bristol.ac.uk" target="_blank">University of Bristol</a>.
-                    I love experimenting, learning and building all sorts; from websites to software to music. I sometimes post my <a href="{{ config.base_url }}/thoughts">thoughts</a>!</p>
-                <p>Interested in making a site like this? Let's <a href="mailto:hi@vandam.tech">talk</a>!</p>
+            <div class="projects">
+                <div class="lizzy">
+                    <div class="project-title">
+                        <a href="https://lizzy.vandam.tech/" target="_blank">Lizzy McAlpine.</a>
+                        <p>Concept, Zola, Fmpeg, Final Cut Pro.</p>
+                    </div>
+                    <a href="https://lizzy.vandam.tech/" target="_blank"><img src="photos/lizzy.png"></a>
+                </div>
+                <div class="links">
+                    <div class="project-title">
+                        <a href="https://github.com/vandamd/mixtape" target="_blank">Mixtape.</a>
+                        <p>Web App, Flask, FFmpeg, Spotipy, Spotdl.</p> 
+                    </div>
+                    <div class="project-title">
+                        <a href="https://github.com/vandamd/Docker-OSX" target="_blank">Guide to configure macOS in a Docker container.</a>
+                        <p>Docker, Virtualisation, Ubuntu, macOS.</p>
+                    </div>
+                    <div class="project-title">
+                        <a href="https://github.com/vandamd/MDM2-Hydro" target="_blank">Evaluating the Viability of Micro-Scale Pumped Hydro Systems.</a>
+                        <p>Francis Turbines, Bayesian Optimisation, MATLAB, Python.</p>
+                    </div>
+                    <div class="project-title">
+                        <a href="https://github.com/vandamd/MDM2-Temperature" target="_blank">Modelling a Central Heating System of Architecture.</a>
+                        <p>Heat Transfer, Euler, Adams Method, ODEs, Python.</p>
+                    </div>
+                    <div class="project-title">
+                        <a href="https://github.com/vandamd/FP-Assignment" target="_blank">COVID-19 UK Dashboard.</a>
+                        <p>API, Jupyter Notebook, Python.</p>
+                    </div>
+                    <div class="project-title">
+                        <a href="https://github.com/vandamd/MDM1-Trees" target="_blank">Modelling the Growth of Douglas Fir.</a>
+                        <p>Differential Equations, Maple.</p>
+                    </div>
+                    <div class="project-title">
+                        <a href="https://github.com/vandamd/MDM1-Networks" target="_blank">Optimising the Connections of Telecommunication Networks.</a>
+                        <p>Minimum Spanning Trees, Kruskal's & Prim's Algorithm, Python.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section>
             <div class="listening-activity">
-                <h1>What I'm listening to 🎶</h1>
-                <div class="card" id="now-playing">
-                    <!-- <a href="https://www.last.fm/user/vandamd" target="_blank" class="track-link"></a> -->
-                    <div class="placeholder skeleton"><img class="album-art" src="/continuum.jpg" style="opacity: 0"></img></div>
-                    <div class="now-playing-text">
-                        <h1 class="track skeleton">Searching Scrobbles</h1>
-                        <p class="artist skeleton">Data from Last.fm</p>
-                        <p class="indicator skeleton">@vandamd</p>
-                    </div>
+
+                <div>
+                    <p>What I'm listening to.</p>
+                    <div id='now-playing'><div class="placeholder" style="font-size: 50px;">🤔</div></div>
                 </div>
+
                 <script type="text/javascript" src="../javascript/music.js"></script>
             </div>
         </section>
 
         <section>
-            <div class="projects">
-                <h1>My projects 🔨</h1>
-                <div class="card">
-                    <h3>Accompany</h3>
-                    <p>Music Companion • Web App • Flask • <span class="magic-text-purple">Coming Soon</span> 🔮</p>
-                </div>
-                <div class="card">
-                    <h3><a href="https://lizzy.vandam.tech/" target="_blank">Lizzy McAlpine</a></h3>
-                    <p>Concept • Zola • FFmpeg • Final Cut Pro</p>
-                </div>
-                <div class="card">
-                    <h3><a href="https://github.com/vandamd/mixtape" target="_blank">Mixtape</a></h3>
-                    <p>Music Downloader • Web App • Flask • FFmpeg • Spotipy • Spotdl</p>
-                </div>
-                <div class="card">
-                    <h3><a href="https://github.com/vandamd/Docker-OSX" target="_blank">Guide to configure macOS in a Docker container</a></h3>
-                    <p>Docker • Virtualisation • Ubuntu • macOS</p>
-                </div>
-                <div class="card">
-                    <h3><a href="https://github.com/vandamd/MDM2-Hydro" target="_blank">Evaluating the Viability of Micro-Scale Pumped Hydro Systems</a></h3>
-                    <p>Francis Turbines • Bayesian Optimisation • MATLAB • Python</p>
-                </div>
-                <div class="card">
-                    <h3><a href="https://github.com/vandamd/MDM2-Temperature" target="_blank">Modelling a Central Heating System of Architecture</a></h3>
-                    <p>Heat Transfer • Euler & Adams Method • Ordinary Differential Equations • Python</p>
-                </div>
-                <div class="card">
-                    <h3><a href="https://github.com/vandamd/FP-Assignment" target="_blank">COVID-19 UK Dashboard</a></h3>
-                    <p>Data Visualisation • API • Jupyter Notebook • Python</p>
-                </div>
-                <div class="card">
-                    <h3><a href="https://github.com/vandamd/MDM1-Trees" target="_blank">Modelling the Growth of Douglas Fir</a></h3>
-                    <p>Differential Equations • Maple</p>
-                </div>
-                <div class="card">
-                    <h3><a href="https://github.com/vandamd/MDM1-Networks" target="_blank">Optimising the Connections of Telecommunication Networks</a></h3>
-                    <p>Minimum Spanning Trees • Kruskal's & Prim's Algorithm • Python</p>
-                </div>
+            <div class="links">
+                <a href="/Resume.pdf" target="_blank">Resume.</a>
+                <a href="https://www.linkedin.com/in/vandamd" target="_blank">LinkedIn.</a>
+                <a href="https://www.github.com/vandamd" target="_blank">GitHub.</a>
+                <a href="mailto:hi@vandam.tech">Contact.</a>
+                <a href="/thoughts" class="button">Thoughts</a>
             </div>
         </section>
 
         <section>
-            <div class="photos">
-                <h1>My photos 📸</h1>
-                <p>I take a couple of snaps of pretty places and faces here and there. The <a href="https://youtu.be/mMepCQbLpZI" target="_blank" >Fujifilm X100</a>  is my weapon of choice and it's an absolute delight to use! Although pretty outdated, it being slow helps me be more intentional.</p>
-                <div class="block-1">
-                    <div class="portraits">
-                        <img src="/photos/m.jpg" class="photo portrait skeleton">
-                        <img src="/photos/j.jpg" class="photo portrait skeleton">
-                        <img src="/photos/fam.jpg" class="photo portrait skeleton">
-                    </div>
-                    <img src="/photos/bristol.jpg" class="photo skeleton">
-                    <div class="landscapes">
-                        <img src="/photos/a.jpg" class="photo landscape skeleton">
-                        <img src="/photos/s.jpg" class="photo landscape skeleton">
-                    </div>
-                </div>
+            <div class="links">
+                <p>🫶🏻</p>
             </div>
         </section>
 
-        <section>
-            <div class="interests">
-                <h1>My interests 🌿</h1>
-                <div class="pill-list">
-                    <span class="list-pill">
-                        <span class="emoji">🌲</span>
-                        Camping
-                    </span>
-                    <span class="list-pill">
-                        <span class="emoji">🧰</span>
-                        Design
-                    </span> 
-                    <span class="list-pill">
-                        <span class="emoji">🎸</span>
-                        Guitar
-                    </span>
-                    <span class="list-pill">
-                        <span class="emoji">🐧</span>
-                        Linux
-                    </span>
-                    <span class="list-pill">
-                        <span class="emoji">⌨️</span>
-                        Mechanical Keyboards
-                    </span>
-                    <span class="list-pill">
-                        <span class="emoji">🌊</span>
-                        Minimalism
-                    </span>
-                    <span class="list-pill">
-                        <span class="emoji">🎵</span>
-                        Music
-                    </span>
-                    <span class="list-pill">
-                        <span class="emoji">📷</span>
-                        Photography
-                    </span>
-                    <span class="list-pill">
-                        <span class="emoji">📎</span>
-                        Productivity
-                    </span>
-                    <span class="list-pill">
-                        <span class="emoji">🍣</span>
-                        Sushi
-                    </span>
-
-                </div>
-            </div>
-        </section>      
     </main>
     {% endblock content %}
-
-    {% block footer %}
-    <footer>
-        <div class="footer-content">
-            <p>🫶🏻 Vandam</p>
-            <p><a href="{{ get_url(path="atom.xml") }}" target="_blank" >RSS</a>
-            <a href="https://github.com/vandamd/vandam.tech" target="_blank">Source</a></p>
-        </div>
-    </footer>
-    {% endblock footer %}
 
     <noscript>
         <style>
