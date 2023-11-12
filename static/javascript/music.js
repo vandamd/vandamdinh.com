@@ -15,6 +15,6 @@ fetch(url)
     // Update the page with the artist and song name
     setTimeout(function() {
         document.getElementById('now-playing').innerHTML = `
-        <a href="${track.url}" target="_blank"><img src="${art}" alt="${album}" class="album-art"></a>`;
+        <a href="${track.url}" target="_blank"><img loading="lazy" src="${art}" alt="${album}" class="album-art"></a>`;
     }, 1000);
 });
