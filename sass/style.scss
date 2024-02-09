@@ -50,7 +50,7 @@ img {
 }
 
 .projects {
-    margin-top: 60vw;
+    margin-top: 4em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -103,7 +103,6 @@ img {
     padding: 1em 0;
     gap: 1em;
     
-    // add blur to color
     .button {
         backdrop-filter: blur(20px);
     }
@@ -114,7 +113,7 @@ img {
 }
 
 .grid {
-    margin: 6% 0 50%;
+    margin: 6% 0 60%;
     display: flex;
     flex-direction: column;
     align-items: center; 
