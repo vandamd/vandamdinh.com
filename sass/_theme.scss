@@ -2,14 +2,16 @@
 $foreground: #000000;
 $background: #FFFFFF;
 $secondary: #656463;
-$grey: #F7F7F7;
+$grey: #dcdcdc5f;
+$grey-2: #c3c3c35f;
 $outline: rgba(101, 100, 99, 0.15);
 
 // Dark Mode
 $foreground-dark: #D4D4D4;
 $background-dark: #191919;
 $secondary-dark: #A0A0A0;
-$grey-dark: #262626;
+$grey-dark: #77777716;
+$grey-2-dark: #dddddd16;
 $outline-dark: rgba(202, 202, 202, 0.25);
 
 @mixin light-theme {
@@ -29,7 +31,7 @@ $outline-dark: rgba(202, 202, 202, 0.25);
     }
 
     .button:hover {
-        background-color: $outline;
+        background-color: $grey-2;
     }
 
     .thoughts {
@@ -74,7 +76,7 @@ $outline-dark: rgba(202, 202, 202, 0.25);
     }
 
     .button:hover {
-        background-color: $outline-dark;
+        background-color: $grey-2-dark;
     }
 
     .thoughts {

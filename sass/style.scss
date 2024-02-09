@@ -25,7 +25,7 @@ img {
 
 .button {
     margin-top: 6em;
-    padding: 0.4em 2em;
+    padding: 0.4em 1em;
     border-radius: 2em;
     cursor: pointer;
 }
@@ -50,7 +50,7 @@ img {
 }
 
 .projects {
-    margin-top: 6em;
+    margin-top: 60vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -79,7 +79,7 @@ img {
 }
 
 .links {
-    margin-top: 6em;
+    margin-top: 4em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -92,6 +92,94 @@ img {
         width: 40%;
     }
 }
+
+.navbar {
+    z-index: 10;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    width: 96vw;
+    justify-content: center;
+    padding: 1em 0;
+    gap: 1em;
+    
+    // add blur to color
+    .button {
+        backdrop-filter: blur(20px);
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.grid {
+    margin: 6% 0 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+
+    img {
+        width: 40%;
+        transition: 200ms;
+        box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.20);
+        object-fit: cover;
+    }
+
+    img:hover {
+        transform: scale(1.055);
+    }
+
+    .bento-1,
+    .bento-2,
+    .bento-3,
+    .bento-4 {
+        position: absolute;
+        transition: 200ms;
+    }
+
+    .bento-1 {
+        transform: translate(-45%, -2%) rotate(-6deg);
+        z-index: 2;
+    }
+
+    .bento-1:hover {
+        transform: translate(-45%, -2%) rotate(-4deg);
+    }
+
+    .bento-2 {
+        transform: translate(45%, 0%) rotate(2deg);
+        z-index: 3;
+    }
+
+    .bento-2:hover {
+        transform: translate(45%, 0%) rotate(1deg);
+    }
+
+    .bento-3 {
+        transform: translate(-42%, 70%) rotate(6deg);
+        z-index: 1;
+    }
+
+    .bento-3:hover {
+        transform: translate(-42%, 70%) rotate(4deg);
+    }
+
+    .bento-4 {
+        transform: translate(45%, 72%) rotate(-6deg);
+        z-index: 4;
+    }
+
+    .bento-4:hover {
+        transform: translate(45%, 72%) rotate(-4deg);
+    }
+
+    .bento-image {
+        width: 22vw;
+        height: 22vw;
+        border-radius: 15%;
+    }
+}    
 
 .thoughts {
 
@@ -172,6 +260,15 @@ img {
     .projects {
         .lizzy {
             width: 90%;
+        }
+    }
+
+    .grid {
+        margin: 15% 0 80% 0; 
+
+        .bento-image {
+            width: 35vw;
+            height: 35vw;
         }
     }
 
