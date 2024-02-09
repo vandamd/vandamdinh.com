@@ -298,3 +298,9 @@ img {
 
     }
 }
+
+@media (hover:hover) {
+    button:hover {
+       background: green;
+    }
+ }
