@@ -125,8 +125,10 @@ img {
         object-fit: cover;
     }
 
-    img:hover {
-        transform: scale(1.055);
+    @media (hover: hover) {
+        img:hover {
+            transform: scale(1.055);
+        }
     }
 
     .bento-1,
@@ -142,8 +144,10 @@ img {
         z-index: 2;
     }
 
-    .bento-1:hover {
-        transform: translate(-45%, -2%) rotate(-4deg);
+    @media (hover: hover) {
+        .bento-1:hover {
+            transform: translate(-45%, -2%) rotate(-4deg);
+        }
     }
 
     .bento-2 {
@@ -151,8 +155,10 @@ img {
         z-index: 3;
     }
 
-    .bento-2:hover {
-        transform: translate(45%, 0%) rotate(1deg);
+    @media (hover: hover) {
+        .bento-2:hover {
+            transform: translate(45%, 0%) rotate(1deg);
+        }
     }
 
     .bento-3 {
@@ -160,8 +166,10 @@ img {
         z-index: 1;
     }
 
-    .bento-3:hover {
-        transform: translate(-42%, 70%) rotate(4deg);
+    @media (hover: hover) {
+        .bento-3:hover {
+            transform: translate(-42%, 70%) rotate(4deg);
+        }
     }
 
     .bento-4 {
@@ -169,8 +177,10 @@ img {
         z-index: 4;
     }
 
-    .bento-4:hover {
-        transform: translate(45%, 72%) rotate(-4deg);
+    @media (hover: hover) {
+        .bento-4:hover {
+            transform: translate(45%, 72%) rotate(-4deg);
+        }
     }
 
     .bento-image {
@@ -297,9 +307,3 @@ img {
 
     }
 }
-
-@media (hover:hover) {
-    button:hover {
-       background: green;
-    }
- }
