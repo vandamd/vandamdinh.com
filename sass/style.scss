@@ -1,20 +1,17 @@
 @import "theme";
 
-// 'Literata' +
-
 :root {
     font-family: 'Literata', serif;
+    font-size: 18px;
 }
 
 body {
-    font-size: 16px;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 0 32px;
     padding-bottom: 128px;
 }
 
 .header {
-    font-size: 28px;
     font-size: 1.75rem;
     margin: 16px 0;
     display: flex;
@@ -38,7 +35,6 @@ body {
     
     a {
         text-decoration: none;
-        font-size: 18px;
         font-size: 1.125rem;
     }
 
@@ -62,7 +58,6 @@ body {
 
     a {
         text-decoration: none;
-        font-size: 18px;
         font-size: 1.125rem;
     }
 
@@ -71,7 +66,6 @@ body {
     }
 
     p {
-        font-size: 14px;
         font-size: 0.875rem;
         margin: 0;
         font-weight: 200;
@@ -90,28 +84,76 @@ body {
     }
 
     h1 {
-        font-size: 24px;
         font-size: 1.5rem;
     }
 
     h2 {
-        font-size: 20px;
         font-size: 1.25rem;
     }
 
     h1#title {
-        font-size: 28px;
         font-size: 1.75rem;
         font-weight: 400;
         margin: 0;
     }
 
     p#date {
-        font-size: 14px;
         font-size: 0.875rem;
         font-weight: 200;
         margin: 0 0 20px 0;
     }
+
+    blockquote {
+        p {
+            font-family: 'Rosarivo', serif;
+            font-style: italic;
+        }
+
+        footer {
+            font-size: 0.75rem;
+            text-align: right;
+        }
+    }
+}
+
+.content {
+    .text-label {
+        font-size: 0.6rem;
+        font-weight: 400;
+        position: relative;
+        vertical-align: baseline;
+        top: -0.3rem;
+        right: 0.1rem;
+    }
+
+    .sidenote-label {
+        font-size: 0.6rem;
+        font-weight: 400;
+        position: relative;
+        vertical-align: baseline;
+        top: -0.3rem;
+        right: 0.1rem;
+    }
+
+    input.sidenote-checkbox {
+        display: none;
+        margin: 3px 3px 3px 4px;
+    }
+
+    span {
+        font-size: 0.75rem;
+        float: right;
+        clear: right;
+        margin-right: -61.5%;
+        width: 50%;
+        margin-top: 0.3rem;
+        margin-bottom: 0;
+        line-height: 1.3;
+        vertical-align: baseline;
+        position: relative;
+    }
+
+
 }
 
 .about {
@@ -121,14 +163,18 @@ body {
     }
 }
 
-@media (min-width: 770px) {
+@media (min-width: 1100px) {
     body {
-        width: 800px;
+        width: 1050px;
         line-height: 1.5;
+    }
+
+    .content {
+        width: 650px;
     }
 }
 
-@media (max-width: 770px) {
+@media (max-width: 1100px) {
     .header {
         p {
             margin: 0;
@@ -145,5 +191,26 @@ body {
         }
     }
 
+    .content {
+        .text-label {
+            cursor: pointer;
+        }
+
+        span {
+            display: none;
+        }
+
+        .sidenote-checkbox:checked + span {
+            display: block;
+            float: left;
+            left: 1rem;
+            clear: both;
+            width: 95%;
+            margin: 1rem 2.5%;
+            position: relative;
+        }
+
+
+    }
 
 }

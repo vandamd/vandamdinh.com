@@ -4,6 +4,8 @@ base_url = "https://vandam.tech"
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
+title = "Vandam's Weblog"
+
 # RSS
 generate_feed = true
 
