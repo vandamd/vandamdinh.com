@@ -1,121 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{% block description %}{{ section.description | default(value=config.description) }}{% endblock description %}">
-    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
-    {% block extra_head %}
-    <link rel="stylesheet" href="{{ get_url(path='style.css', cachebust=true) }}">
-    {% endblock extra_head %}
-    <link rel="icon" href="{{ config.extra.hook_icon | safe }}">
+{% extends "base.html" %}
 
-    {% block rss %}
-      <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="atom.xml", trailing_slash=false) }}">
-    {% endblock %}
-</head>
+{% block content %}
+<div class="posts">
+    <ul>
+    {% set section = get_section(path="writing/_index.md") %}
+    {% for page in section.pages %}
+        <li>
+            <a class="no-underline text-sky-200 text-xl" href="{{ page.permalink | safe }}">{{ page.title }}</a>
+            <p>
+                {{ page.date | date(format="%B %e, %Y") }}{% if page.updated %}, updated {{ page.updated | date(format="%B %e, %Y") }}{% else %}{% endif %}
+            </p>
+        </li>
+    {% endfor %}  
+    </ul>
+</div>
 
-<body>
-    <script src="/javascript/darkmode.js"></script>
-
-    {% block content %}
-    <main>
-        <div class="links">
-            <a>Vandam Dinh.</a>
-            <a>Software Engineer Intern, Dyson.</a>
-        </div>
-
-        <div class="grid">
-            <div class="bento-1">
-                <img loading="lazy" class="bento-image" src="photos/me.jpg">
-            </div>
-            <div class="bento-2">
-                <img loading="lazy" class="bento-image" src="photos/camping.jpg">
-            </div>
-            <div class="bento-3">
-                <img loading="lazy" class="bento-image" src="photos/bristol.jpg">
-            </div>
-            <div class="bento-4">
-                <img loading="lazy" class="bento-image" src="photos/dyson.jpg">
-            </div>
-        </div>
-
-        <section>
-            <div class="projects">
-                <div class="lizzy">
-                    <div class="project-title">
-                        <a href="https://lizzy.vandam.tech/" target="_blank">Lizzy McAlpine.</a>
-                        <p>Concept, Zola, Fmpeg, Final Cut Pro.</p>
-                    </div>
-                    <a href="https://lizzy.vandam.tech/" target="_blank"><img loading="lazy" src="photos/lizzy.jpg"></a>
-                </div>
-                <div class="links">
-                    <div class="project-title">
-                        <a href="https://github.com/vandamd/mixtape" target="_blank">Mixtape.</a>
-                        <p>Web App, Flask, FFmpeg, Spotipy, Spotdl.</p> 
-                    </div>
-                    <div class="project-title">
-                        <a href="https://github.com/vandamd/Docker-OSX" target="_blank">Guide to configure macOS in a Docker container.</a>
-                        <p>Docker, Virtualisation, Ubuntu, macOS.</p>
-                    </div>
-                    <div class="project-title">
-                        <a href="https://github.com/vandamd/MDM2-Hydro" target="_blank">Evaluating the Viability of Micro-Scale Pumped Hydro Systems.</a>
-                        <p>Francis Turbines, Bayesian Optimisation, MATLAB, Python.</p>
-                    </div>
-                    <div class="project-title">
-                        <a href="https://github.com/vandamd/MDM2-Temperature" target="_blank">Modelling a Central Heating System of Architecture.</a>
-                        <p>Heat Transfer, Euler, Adams Method, ODEs, Python.</p>
-                    </div>
-                    <div class="project-title">
-                        <a href="https://github.com/vandamd/FP-Assignment" target="_blank">COVID-19 UK Dashboard.</a>
-                        <p>API, Jupyter Notebook, Python.</p>
-                    </div>
-                    <div class="project-title">
-                        <a href="https://github.com/vandamd/MDM1-Trees" target="_blank">Modelling the Growth of Douglas Fir.</a>
-                        <p>Differential Equations, Maple.</p>
-                    </div>
-                    <div class="project-title">
-                        <a href="https://github.com/vandamd/MDM1-Networks" target="_blank">Optimising the Connections of Telecommunication Networks.</a>
-                        <p>Minimum Spanning Trees, Kruskal's & Prim's Algorithm, Python.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="listening-activity">
-
-                <div>
-                    <p>What I'm listening to.</p>
-                    <div id='now-playing'><div class="placeholder" style="font-size: 50px;">🤔</div></div>
-                </div>
-
-                <script type="text/javascript" src="../javascript/music.js"></script>
-            </div>
-        </section>
-
-        <section>
-            <div class="navbar">
-                <a href="mailto:hi@vandam.tech" class="button">hi@vandam.tech</a>
-                <a href="/thoughts" class="button">Thoughts</a>
-            </div>
-        </section>
-
-        <section>
-            <div class="links">
-                <p>Made with 💛</p><br><br><br>
-            </div>
-        </section>
-
-    </main>
-    {% endblock content %}
-
-    <noscript>
-        <style>
-            .dark-mode-buttons {
-                display: none;
-            }
-        </style>
-    </noscript>
-</body>
-</html>
+{% endblock content %}

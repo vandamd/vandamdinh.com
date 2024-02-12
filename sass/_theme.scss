@@ -1,56 +1,23 @@
 // Light Mode
 $foreground: #000000;
 $background: #FFFFFF;
-$secondary: #656463;
-$grey: #dcdcdc5f;
-$grey-2: #c3c3c35f;
-$outline: rgba(101, 100, 99, 0.15);
+$blue: #1a69c4;
 
 // Dark Mode
 $foreground-dark: #D4D4D4;
 $background-dark: #191919;
-$secondary-dark: #A0A0A0;
-$grey-dark: #77777716;
-$grey-2-dark: #dddddd16;
-$outline-dark: rgba(202, 202, 202, 0.25);
+$blue-dark: #5094e2;
 
 @mixin light-theme {
     color: $foreground;
     background-color: $background;
 
-    p, a, a:link, a:visited {
+    p {
         color: $foreground;
     }
 
-    .placeholder {
-        background: $grey;
-    }
-
-    .button {
-        background-color: $grey;
-    }
-
-    .button:hover {
-        background-color: $grey-2;
-    }
-
-    .thoughts {
-        .update-s p {
-            background-color: $grey;
-        }
-
-        .update-t p {
-            color: $secondary;
-        }
-
-        a {
-            color: $secondary;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
+    a, a:link, a:visited {
+        color: $blue;
     }
 
 }
@@ -59,65 +26,14 @@ $outline-dark: rgba(202, 202, 202, 0.25);
     color: $foreground-dark;
     background-color: $background-dark;
 
-    ::selection {
-        background-color: $grey-dark;
-    }
-
-    p, a, a:link, a:visited {
+    p {
         color: $foreground-dark;
     }
 
-    .placeholder {
-        background: $outline-dark;
+    a, a:link, a:visited {
+        color: $blue-dark;
     }
-
-    .button {
-        background-color: $grey-dark;
-    }
-
-    .button:hover {
-        background-color: $grey-2-dark;
-    }
-
-    .thoughts {
-        .update-s p {
-            background-color: $grey-dark;
-        }
-
-        .update-t p {
-            color: $secondary-dark;
-        }
-
-        a {
-            color: $secondary-dark;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-    }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @media (prefers-color-scheme: light) {
@@ -129,15 +45,6 @@ $outline-dark: rgba(202, 202, 202, 0.25);
 @media (prefers-color-scheme: dark) {
     body {
         @include dark-theme;
-    }
-}
-
-.dark-mode-button {
-    border: none;
-    background-color: transparent;
-
-    &:hover {
-        cursor: pointer;
     }
 }
 

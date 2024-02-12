@@ -1,5 +1,6 @@
 +++
-date = 2023-01-01T17:26:00+01:00
+title = "Stepping back"
+date = 2023-01-01
 +++
 
 At the time of writing this, I'm 19 years old. I grew up with technology for most of my life—we had a huge beige family computer in our living room, and I'd watch Digimon with my brother. What a time!

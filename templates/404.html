@@ -1,37 +1,8 @@
-{% extends "page.html" %}
-
-{% block title %}{{ config.title }} | Page Not Found{% endblock title %}
-
-{% block header %}
-    <header class="header">
-        <div class="title">
-            <a href="{{ config.base_url }}""><h1>{{ config.title }}</h1></a>
-            <!-- Dark Mode Button -->
-            <div class="dark-mode-buttons">
-                <button class="dark-mode-button" id="dark-mode-on"><img src="{{ get_url(path='dark_mode.svg') }}" width="24" height="24" alt="Dark mode" aria-label="dark mode toggle" title="Dark mode"></button>
-                <button class="dark-mode-button" id="dark-mode-off"><img src="{{ get_url(path='light_mode.svg') }}" width="24" height="24" alt="Light mode" aria-label="light mode toggle" title="Light mode"></button>
-            </div>
-            <script src="/javascript/darkmode.js"></script>
-        </div>
-
-        {% set blog = get_section(path="_index.md") %}
-        {% set linked_pages = blog.pages | filter(attribute="extra.in_header") %}
-        {% if config.extra.links or linked_pages %}
-        <nav class="header-links">
-            {% for link in config.extra.links %}
-            <a href="{{ link.href }}" target="_blank">{{ link.title }}</a>
-            {% endfor %}
-            {% for link in linked_pages %}
-            <a href="{{ link.permalink }}">{{ link.title }}</a>
-            {% endfor %}
-        </nav>
-        {% endif %}
-    </header>
-{% endblock header %}
+{% extends "base.html" %}
 
 {% block content %}
-<main>
-    <h1>Page Not Found (404)</h1>
-    <p>Oops! I think you got lost...</p>
-</main>
+<div class="post">
+    <h1 id="title">404</h1>
+    <br><p>Oops! The page you are looking for has been removed or relocated.</p>
+</div>
 {% endblock content %}
