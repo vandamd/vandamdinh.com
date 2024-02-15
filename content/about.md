@@ -24,3 +24,4 @@ Hi there! I'm Vandam. I think I have a cool name. It reminds a lot of people of 
 - [Email](mailto:hi@vandam.tech)
 - [LinkedIn](https://www.linkedin.com/in/vandamd)
 - [GitHub](https://github.com/vandamd)
+- [Cosmos](https://www.cosmos.so/vandam)

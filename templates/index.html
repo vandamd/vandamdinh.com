@@ -6,7 +6,7 @@
     {% set section = get_section(path="writing/_index.md") %}
     {% for page in section.pages %}
         <li>
-            <a class="no-underline text-sky-200 text-xl" href="{{ page.permalink | safe }}">{{ page.title }}</a>
+            <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
             <p>
                 {{ page.date | date(format="%B %e, %Y") }}{% if page.updated %}, updated {{ page.updated | date(format="%B %e, %Y") }}{% else %}{% endif %}
             </p>
