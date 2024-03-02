@@ -7,12 +7,3 @@ if (getSessionTheme === "dark") {
 } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
     cls.toggle("dark-mode", true);
 }
-
-document.getElementById("dark-mode-on").addEventListener("click", function(e) {
-    cls.toggle("dark-mode", true);
-    sessionStorage.setItem("theme", "dark");
-});
-document.getElementById("dark-mode-off").addEventListener("click", function(e) {
-    cls.toggle("dark-mode", false);
-    sessionStorage.setItem("theme", "light");
-});
