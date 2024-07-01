@@ -1,27 +1,20 @@
 +++
-title = "About me"
+title = "About"
 date = 2024-02-10
-updated = 2024-02-11
+updated = 2024-07-01
 template = "about.html"
 +++
 
-Hi there! I'm Vandam. I think I have a cool name. It reminds a lot of people of [Jean Claude Van Damme](https://en.wikipedia.org/wiki/Jean-Claude_Van_Damme). I can't quite do the splits (yet) though.
+hey, nice to see you here!
 
-# My fabulous face
-![Vandam](/images/me.jpg)
+my name is vandam dinh, i'm 21 years old. i solve problems, in fact, i love problems. i pick things up quick, it's my superpower. how? i'm a bit nosy with things that make me go "whatttttttt!!". if it interests me, i'll learn.
 
-# What I do
-- I'm interning at Dyson as a Software Engineer
-- I also attend the University of Bristol, studying Engineering Mathematics
+i currently solve robotic-simulation-esque problems at Dyson. i've worked on some MyDyson cloud stuff too. i'll be studying engineering mathematics (y4) at bristol uni in sept.
 
-# What I love
-- Bouldering (V6 Kilter @ 50°)
-- Hiking
-- [Gävle goat](https://www.youtube.com/watch?v=-zjJpFYtx9s)
-- (Digital) Minimalism
+kinda been obssessed with bouldering since 2023 (V6 Kilter @ 50°).
 
-# Me on the internet
+feel free to reach out:
+
 - [Email](mailto:hi@vandamdinh.com)
 - [LinkedIn](https://www.linkedin.com/in/vandamd)
-- [GitHub](https://github.com/vandamd)
-- [Cosmos](https://www.cosmos.so/vandam)
+

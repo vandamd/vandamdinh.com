@@ -1,12 +1,12 @@
 // Light Mode
-$foreground: #000000;
-$background: #FFFFFF;
+$foreground: #252D39;
+$background: #FFFCF5;
 $blue: #1a69c4;
 
 // Dark Mode
-$foreground-dark: #D4D4D4;
-$background-dark: #191919;
-$blue-dark: #5094e2;
+$foreground-dark: #C1CCE7;
+$background-dark: #1B2029;
+$blue-dark: #5385D2;
 
 @mixin light-theme {
     color: $foreground;
