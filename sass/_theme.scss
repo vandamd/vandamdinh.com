@@ -27,7 +27,7 @@ $blue-dark: #5385D2;
     }
 
     .header {
-        a.title {
+        a.title, a.title:link, a.title:visited {
             color: $foreground;
         }
     }
@@ -46,13 +46,18 @@ $blue-dark: #5385D2;
         color: $blue-dark;
     }
 
+    footer {
+        a, a:link, a:visited {
+            color: $foreground-dark;
+        }
+    }
+
     .header {
-        a.title {
-            color: $foreground;
+        a.title, a.title:link, a.title:visited {
+            color: $foreground-dark;
         }
     }
 }
-
 
 @media (prefers-color-scheme: light) {
     body {
