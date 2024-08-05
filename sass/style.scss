@@ -118,6 +118,14 @@ body {
             text-align: right;
         }
     }
+
+    img {
+        width: 100%;
+    }
+
+    img.wide_image {
+      margin-bottom: 1rem;
+    }
 }
 
 .content {
@@ -155,6 +163,10 @@ body {
         line-height: 1.3;
         vertical-align: baseline;
         position: relative;
+    }
+
+    span.side_image {
+        margin-bottom: 1rem;
     }
 
 
@@ -198,6 +210,25 @@ body {
     .content {
         .text-label {
             cursor: pointer;
+        }
+
+        span.side_image {
+            display: block;
+            width: 100%;
+            margin-bottom: 1rem;
+            float: unset;
+        }
+
+        img.wide_image {
+            margin-bottom: 0rem;
+          }
+
+        span.wide_image {
+            display: block;
+            width: 100%;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            float: unset;
         }
 
         span {
