@@ -20,6 +20,18 @@ $blue-dark: #5385D2;
         color: $blue;
     }
 
+    footer {
+        a, a:link, a:visited {
+            color: $foreground;
+        }
+    }
+
+    .header {
+        a.title {
+            color: $foreground;
+        }
+    }
+
 }
 
 @mixin dark-theme {
@@ -32,6 +44,12 @@ $blue-dark: #5385D2;
 
     a, a:link, a:visited {
         color: $blue-dark;
+    }
+
+    .header {
+        a.title {
+            color: $foreground;
+        }
     }
 }
 

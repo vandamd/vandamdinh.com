@@ -1,17 +1,30 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="posts">
-    <ul>
-    {% set section = get_section(path="writing/_index.md") %}
-    {% for page in section.pages %}
-        <li>
-            <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
-            <p>
-                {{ page.date | date(format="%B %e, %Y") }}{% if page.updated %}, updated {{ page.updated | date(format="%B %e, %Y") }}{% else %}{% endif %}
-            </p>
-        </li>
-    {% endfor %}  
-    </ul>
+<div class="home">
+    <div class="post">
+        <!-- show about.md -->
+        {% set about = get_page(path="about.md") %}
+        <h1 id="title">{{ about.title }}</h1>
+        <p id="date">{% if about.updated %} Updated {{ about.updated | date(format="%B %e, %Y") }}{% else %}{% endif %}</p>
+        <div class="content">
+            {{ about.content | safe }}
+        </div>
+    </div>
+    
+    <div class="posts">
+        <h1 id="title">Posts</h1>
+        <ul>
+        {% set section = get_section(path="writing/_index.md") %}
+        {% for page in section.pages %}
+            <li>
+                <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+                <p>
+                    {{ page.date | date(format="%B %e, %Y") }}{% if page.updated %}, updated {{ page.updated | date(format="%B %e, %Y") }}{% else %}{% endif %}
+                </p>
+            </li>
+        {% endfor %}  
+        </ul>
+    </div>
 </div>
 {% endblock content %}
