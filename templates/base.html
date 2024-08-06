@@ -10,10 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Rosarivo:ital@0;1&display=swap" rel="stylesheet"> 
 
     {% block preview %}
-        <meta property="og:title" content="Vandam's Weblog" />
+        <meta property="og:title" content="{{ config.title }}" />
         <meta property="og:description" content="" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://vandamdinh.com" />
+        <meta property="og:url" content="{{ config.base_url }}" />
         <meta property="og:image" content="{{ get_url(path='images/me.jpg') }}"/>
     {% endblock preview %}
 
@@ -33,14 +33,7 @@
     <script src="/javascript/darkmode.js"></script>
 
     <div class="header">
-        <p><a href="/" class="title">Vandam's Weblog</a></p>
-        <nav>
-            <ul>
-                <!-- <li id="first"><a href="/">Writing</a></li> -->
-                <!-- <li><a href="/about">About</a></li> -->
-                <!-- <li><a id="atomfeedlink" href="/atom.xml" title="My Atom feed"><svg xmlns="http://www.w3.org/2000/svg" width="14px" height="14px" viewBox="0 0 256 256"><defs><linearGradient id="a" x1=".1" x2=".9" y1=".1" y2=".9"><stop offset="0" stop-color="#E3702D"></stop><stop offset=".1" stop-color="#EA7D31"></stop><stop offset=".4" stop-color="#F69537"></stop><stop offset=".5" stop-color="#FB9E3A"></stop><stop offset=".7" stop-color="#EA7C31"></stop><stop offset=".9" stop-color="#DE642B"></stop><stop offset="1" stop-color="#D95B29"></stop></linearGradient></defs><rect width="256" height="256" fill="#CC5D15" rx="55" ry="55"></rect><rect width="246" height="246" x="5" y="5" fill="#F49C52" rx="50" ry="50"></rect><rect width="236" height="236" x="10" y="10" fill="url(#a)" rx="47" ry="47"></rect><circle cx="68" cy="189" r="24" fill="#FFF"></circle><path fill="#FFF" d="M160 213h-34a82 82 0 0 0-82-82V97a116 116 0 0 1 116 116z"></path><path fill="#FFF" d="M184 213A140 140 0 0 0 44 73V38a175 175 0 0 1 175 175z"></path></svg></a></li> -->
-            </ul>
-        </nav>
+        <p><a href="/" class="title">{{ config.title }}</a></p>
     </div>
 
     <section>
