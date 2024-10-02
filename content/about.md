@@ -10,6 +10,6 @@ Hey! I'm a 21 year old software engineer based in Bristol, UK. I'm currently stu
 I was prev. working at Dyson, solving robotic-simulation-esque problems along with some MyDyson cloud stuff too.
 
 # What I'm focusing on right now
-1. Building something for robots
-2. Attending university
-3. Attaining V6 on the moonboard
+1. Completing my degree
+2. Attaining V6 on the moonboard
+3. 100wpm gallium v2 on voyager
