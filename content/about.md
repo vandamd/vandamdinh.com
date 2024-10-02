@@ -1,7 +1,7 @@
 +++
 title = "About me"
 date = 2024-02-10
-updated = 2024-09-06
+updated = 2024-10-02
 template = "about.html"
 +++
 
