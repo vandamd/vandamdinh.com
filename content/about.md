@@ -1,7 +1,7 @@
 +++
 title = "About me"
 date = 2024-02-10
-updated = 2024-10-02
+updated = 2024-10-31
 template = "about.html"
 +++
 
@@ -11,5 +11,5 @@ I was prev. working at Dyson, solving robotic-simulation-esque problems along wi
 
 # What I'm focusing on right now
 1. Completing my degree
-2. Attaining V6 on the moonboard
+2. Achieving a one arm pull-up
 3. 100wpm gallium v2 on voyager
