@@ -11,19 +11,19 @@
             {{ about.content | safe }}
         </div>
     </div>
-    
+
     <div class="posts">
         <h1 id="title">Posts</h1>
         <ul>
         {% set section = get_section(path="writing/_index.md") %}
-        {% for page in section.pages %}
+        {% for page in section.pages | sort(attribute="date") | reverse %}
             <li>
                 <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
                 <p>
                     {{ page.date | date(format="%B %e, %Y") }}{% if page.updated %}, updated {{ page.updated | date(format="%B %e, %Y") }}{% else %}{% endif %}
                 </p>
             </li>
-        {% endfor %}  
+        {% endfor %}
         </ul>
     </div>
 </div>

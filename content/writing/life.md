@@ -1,9 +1,7 @@
-
-+++
-title = "Future"
-date = 2024-08-04
-+++
-
+---
+title: "Future"
+date: 2024-08-04
+---
 A couple months ago I was watching a [James Scholz](https://www.youtube.com/@jvscholz/videos) video, he mentioned something about writing his own autobiography as a method of journalling - I thought that was pretty cool.{% sidenote(id="1") %}I'm 99.99999% sure he talked about it, but I'm unsure in what video.{% end %} This idea has been at the very back of my mind since then. 
 
 To me, writing an autobiography seemed pretty daunting. I didn't know where to start. After lots of thought and research, I'm happy to showcase a beautiful butterfly effect leading up to my life.
